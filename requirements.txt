@@ -1,0 +1,2 @@
+solders==0.28.0
+requests==2.34.2

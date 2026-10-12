@@ -1,0 +1,14 @@
+{
+  "native_parity": {"result":"PASS","cases":76,"mainnet_pools":4,"cpi_cases":8,"completing_buys":4},
+  "synthetic_edge_cases": {"result":"PASS","cases":23},
+  "rust_tests": {"result":"PASS","tests":6},
+  "clippy": {"result":"PASS","deny_warnings":true},
+  "network_disabled_execution": true,
+  "founder_gate": {"exit_code":0,"features":85,"unmeasurable":0,"preexisting_exceptions":["first-buy-percentage-choices","lmtless-token-page","sidebar-buy-claim","wishes-reward-float"]},
+  "production_changes":0,
+  "mainnet_transactions":0,
+  "deployments":0,
+  "form_submissions":0,
+  "public_repository_created":false,
+  "routing_status":"BLOCKED pending Jupiter native SOL/WSOL routing integration; Placeholder is not a Jupiter instruction"
+}

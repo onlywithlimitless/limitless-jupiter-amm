@@ -1,0 +1,32 @@
+   Compiling limitless-jupiter-amm v0.1.0 (/home/ubuntu/limitless-jupiter-amm)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.51s
+     Running unittests src/lib.rs (target/debug/deps/limitless_jupiter_amm-82ff970599de5418)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/quote.rs (target/debug/deps/quote-1461fb48738ade4c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/adapter.rs (target/debug/deps/adapter-b06935482623bc35)
+
+running 6 tests
+test owner_discriminator_and_pda_checks_fail_closed ... ok
+test no_quote_before_update_and_failed_refresh_invalidates_cache ... ok
+test clone_preserves_quote_without_network ... ok
+test transfer_fees_select_epoch_and_round_up_with_caps ... ok
+test refuses_wrong_pairs_exact_out_zero_and_overflow ... ok
+test complete_graduated_prepared_threshold_and_underfunded_states_refuse ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests limitless_jupiter_amm
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

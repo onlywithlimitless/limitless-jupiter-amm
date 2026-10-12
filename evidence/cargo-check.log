@@ -1,0 +1,106 @@
+    Updating git repository `https://github.com/jup-ag/jupiter-amm-interface`
+     Locking 1 package to highest Rust 1.99.0 compatible version
+      Adding jupiter-amm-interface v0.6.1 (https://github.com/jup-ag/jupiter-amm-interface?rev=95bd18485e580625a39eb92a0c0ad2061579daad#95bd1848)
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+    Checking solana-program-error v3.0.1
+    Checking solana-hash v4.7.0
+   Compiling curve25519-dalek v4.1.3
+   Compiling num-traits v0.2.19
+   Compiling syn v2.0.119
+   Compiling syn v3.0.8
+    Checking solana-sha256-hasher v3.1.0
+    Checking solana-instruction-error v2.5.0
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.21
+    Checking serde_bytes v0.11.19
+    Checking serde_json v1.0.154
+    Checking thiserror v2.0.21
+   Compiling curve25519-dalek-derive v0.1.1
+   Compiling solana-sdk-macro v3.0.1
+    Checking solana-clock v4.0.0
+    Checking solana-clock v3.2.1
+    Checking solana-address v2.9.0
+    Checking rust_decimal v1.43.0
+    Checking solana-pubkey v4.4.0
+    Checking solana-sdk-ids v3.1.0
+    Checking solana-account-info v3.1.1
+    Checking solana-instruction v4.0.0
+    Checking solana-instruction v3.5.1
+    Checking solana-account v4.7.0
+    Checking jupiter-amm-interface v0.6.1 (https://github.com/jup-ag/jupiter-amm-interface?rev=95bd18485e580625a39eb92a0c0ad2061579daad#95bd1848)
+    Checking limitless-jupiter-amm v0.1.0 (/home/ubuntu/limitless-jupiter-amm)
+error[E0433]: cannot find type `LaunchpadError` in this scope
+  --> src/admission.rs:16:16
+   |
+16 |         .ok_or(LaunchpadError::AmountOverflow)?;
+   |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+  --> src/admission.rs:70:20
+   |
+70 |             .ok_or(LaunchpadError::AmountOverflow)?;
+   |                    ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:135:16
+    |
+135 |         .ok_or(LaunchpadError::NotReadyForGraduation)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:150:16
+    |
+150 |         .ok_or(LaunchpadError::AmountOverflow)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:154:16
+    |
+154 |         .ok_or(LaunchpadError::AmountOverflow)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:157:16
+    |
+157 |         .ok_or(LaunchpadError::AmountOverflow)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:164:16
+    |
+164 |         .ok_or(LaunchpadError::AmountOverflow)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:168:16
+    |
+168 |         .ok_or(LaunchpadError::AmountOverflow)?;
+    |                ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:223:20
+    |
+223 |             .ok_or(LaunchpadError::NotReadyForGraduation)?;
+    |                    ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:256:24
+    |
+256 |                 .ok_or(LaunchpadError::AmountOverflow)?;
+    |                        ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:259:24
+    |
+259 |                 .ok_or(LaunchpadError::NotReadyForGraduation)?;
+    |                        ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+error[E0433]: cannot find type `LaunchpadError` in this scope
+   --> src/admission.rs:271:24
+    |
+271 |                 .ok_or(LaunchpadError::NotReadyForGraduation)?;
+    |                        ^^^^^^^^^^^^^^ use of undeclared type `LaunchpadError`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `limitless-jupiter-amm` (lib) due to 12 previous errors

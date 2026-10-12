@@ -1,0 +1,21 @@
+{
+  "Cargo.lock": "7fbd99c170358835bc77da3e4f34ce40a50e7d0777120d20def26b3c71127855",
+  "Cargo.toml": "13ada0a3eae6b06f17e1f085c1d33df36e586d2730411bbaf0409b90197afc1e",
+  "idl/launchpad_program.json": "6450cbc9dfd3bf16eb948962b6b445c3f0db3b25d87156234eebc4e85a74da3b",
+  "requirements.txt": "afccbae8864eb0550eaee2efcd0b6345c1e52a42049ac94aff4f96cea6c0164c",
+  "rust-toolchain.toml": "e5cc0545f232bde807bd9394c2433322d1cd2cf42b060ceab2ac7329bc9cdaa2",
+  "src/admission.rs": "92eeb3962e927b388ec65c186876a2fabd392bb51ada08f76c3431cbd43311eb",
+  "src/bin/quote.rs": "6e974aec8c74b614894460d8a0919cae2013dc1092144ede91fcb1b21025bb2e",
+  "src/lib.rs": "8e9ab6381ce5a35edc0ad1bde40509d5d75048e8e171a557d5dfbba8bdd6550e",
+  "src/math.rs": "9694f3d0d9a52013cc649270af952054ef937bacd1d11265c3cee68574873557",
+  "src/state.rs": "a95c8dd4e6b5e6b53667b0bcc7334ceea4acdebfe7ab5cc9f9c4707bb21ed17d",
+  "tests/fixtures/3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV.json": "fde06250175e4214e7b5fb906c0ef705166f878d4a4ea2239d15fd7cae1c59b8",
+  "tests/fixtures/Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU.json": "1efa8c90d7170c2df9852bc67cd42716353da8b035741641786b0088a439ad46",
+  "tests/fixtures/FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf.json": "c9fb17ca6ba29001ad5bd02804c789d1aade6b54502d878aa0b0db1182dc1ad7",
+  "tests/fixtures/GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx.json": "7a0d32db325c6ba0ea5707cf8b1f91d26a41089ca278a0e9745c09ecd05e0e66",
+  "tests/fixtures/cpi_relay.so": "b93fe1bd2ca02593fa9590f12551cdb8b5de6317dbb78eeaf53f6c64d029c768",
+  "tests/fixtures/limitless.so": "cc10058317ec65cf09f5a021a05c9a1901a5b42be49732c860b54c6c3e8a9b9d",
+  "tests/fixtures/spl_associated_token_account.so": "6804554e69fd3a58caa191dc4a58f4c67223d30ca28ab8987f39fc18d2f7374d",
+  "tests/fixtures/spl_token_2022.so": "0999dbf708971e723b08d1caafc988826a59c6001ed6dc02260da07defbe1469",
+  "tests/fixtures/wsol-mint.json": "b15ec56ace6db5a28378dd32664fa1fec83a1757e2d1bfe50bf08dd0cf48784d"
+}

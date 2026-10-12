@@ -1,0 +1,172 @@
+PASS [chromium] hero-copy: Approved Solana headline and earnings subcopy
+PASS [chromium] hero-type-size: Shrunken headline remains legible and fits
+PASS [chromium] hero-hide: Header can be hidden without losing Customize
+PASS [chromium] home-section-order: Founder-selected default homepage order
+PASS [chromium] home-section-reorder: Homepage sections remain reorderable
+PASS [chromium] trending-hide: Trending section remains hideable
+PASS [chromium] trending-image-cards: Trending retains large image-first ranked cards
+PASS [chromium] all-tokens-layout: Pills first with a premium layout control
+PASS [chromium] platform-badge: Approved real logos on token cards
+FAIL [chromium] sidebar-buy-claim: /tokens Buy aura pill missing
+PASS [chromium] referral-with: Approved /with referral landing
+PASS [chromium] terms-one-tap: One branded Terms popup, accepted once
+PASS [chromium] no-extra-age-gate: No extra age checkbox in launch
+PASS [chromium] launch-single-cta: Launch for free opens both free and paid choices on Solana and Robinhood
+PASS [chromium] launch-chain-pill: Solana/Robinhood launch selector stays a pill
+PASS [chromium] robinhood-matrix-green: Robinhood retains matrix green theme
+PASS [chromium] sidebar-solana-one-click: One sidebar click returns to Solana Home
+PASS [chromium] launch-description-banner: Description and banner remain optional together
+PASS [chromium] creator-links-later: Social links stay out of the launch form
+PASS [chromium] advanced-chart-tools: Advanced chart and its toolbars remain on token page
+PASS [chromium] empty-chart-genie: Empty token chart keeps the Genie state
+PASS [chromium] wishes-signed-out: Approved simple Wishes entry before sign-in
+PASS [chromium] wishes-background: Wishes entry stays free of autoplay and rotating preload
+PASS [chromium] genie-nav-logo: Navigation uses the real Genie logo
+PASS [chromium] live-network-label: Live review does not regress to testnet UI
+FAIL [chromium] lmtless-token-page: /lmtless LMTLESS token page is missing
+PASS [chromium] launch-for-free-wording: Launch for free remains the launch form button
+PASS [chromium] launch-founder-ceremony: YOU’RE A FOUNDER NOW appears during launch
+PASS [chromium] launch-lifting-image: Token image rises during the launch ceremony
+PASS [chromium] launch-burst-sound: Launch ceremony plays its achievement sound
+PASS [chromium] launch-burst-confetti: Launch ceremony fires confetti while the token rises
+PASS [chromium] launch-confirmation-celebration: Successful launch retains its celebratory confirmation
+PASS [chromium] launch-progress: Launch progress stays visible during chain work
+PASS [chromium] rh-launch-ceremony-parity: Robinhood keeps the launch motion and sounds with green confetti
+PASS [chromium] rh-metamask-session: Robinhood retains its MetaMask wallet connection
+PASS [chromium] rh-calm-hero: Robinhood keeps its calmer green background video
+PASS [chromium] chain-navbar-logos: Solana and Robinhood use their real chain logos in navigation
+PASS [chromium] day-night-control: Cartoon day and night switch changes and remembers the theme
+PASS [chromium] launch-button-shimmer: Launch navigation button retains its sweeping shimmer
+PASS [chromium] quick-buy-shimmer: Quick buy retains the matching hover shimmer
+PASS [chromium] trade-success-motion: Quick buys retain the approved token-page success animation
+PASS [chromium] buy-sounds: Buying retains its sound across token and quick-buy paths
+PASS [chromium] sell-sounds: Selling retains its sound across token and wallet quick-sell paths
+PASS [chromium] sound-control: Sound on and off stays available with its toggle chime
+PASS [chromium] wishes-dashboard-video: Signed-in Wishes retains the background without an end fade
+PASS [chromium] wishes-header-lamp: Wishes keeps its centered heading and lamp balance
+PASS [chromium] wishes-dashboard-tabs: Wishes keeps the Shop, Lamps and Inventory navigation after sign-in
+PASS [chromium] wishes-leaderboard-avatars: Wishes leaderboard retains user portraits and the Genie fallback
+PASS [chromium] wishes-connect-x: Connecting X keeps its connected state and celebration
+PASS [chromium] wishes-scan: Wishes retains the Scan for Wishes control
+PASS [chromium] wishes-grand-wish: Grand Wish retains the special reward and lamp presentation
+PASS [chromium] wishes-corners: Wishes dashboard keeps the approved rounded containers
+PASS [chromium] creator-social-icons: Creators can add social links later with small token-page icons
+PASS [chromium] creator-listing-guide: Creator listing guide keeps CoinGecko, RugCheck and DexScreener
+PASS [chromium] vanity-launch-ui: Custom token addresses retain delivery estimates and progress
+PASS [chromium] genie-reveal-retained: Hidden Genie reveal technology remains preserved
+PASS [chromium] marketplace-retained: Hidden NFT marketplace remains preserved
+PASS [chromium] profile-identity: Profile identity remains connected across the product
+PASS [chromium] page-footer: Footer stays at the bottom without covering content
+PASS [chromium] hero-video-framing: Homepage video keeps its approved full framing
+PASS [chromium] canonical-discord-invite: Public Discord links keep the approved uselimitless invite
+PASS [chromium] genie-support-particles: Support Genie keeps its gentle floating dots and purple circle
+PASS [chromium] sell-percentage-presets: Small sell buttons retain 25%, 50%, 75% and 100% choices
+FAIL [chromium] wishes-reward-float: /wish Missing approved implementation in src/modules/wish-hub/wishes-app/passport-client.tsx: window.setTimeout(() => setReady(true), 2800)
+PASS [chromium] wishes-rank-finishes: Wishes ranks keep diamond first, gold second and silver third
+PASS [chromium] wishes-replay-share: Earned badges can be replayed, downloaded and shared again
+PASS [chromium] wishes-sticky-header: Mobile Wishes header appears when the main heading scrolls away
+PASS [chromium] genie-rewards-retained: Genie rewards remain while staking and marketplace navigation stay hidden
+PASS [chromium] hero-real-token-pills: Floating homepage pills remain connected to actual tokens
+PASS [chromium] wishes-earn-energy: Earning Wishes sends purple energy into the lamp
+PASS [chromium] wishes-unlock-art: Lamp, Genie and crown unlocks keep their own art and escalating celebrations
+PASS [chromium] wishes-avatar-frames: Avatar frames keep users’ own pictures with a separate decorative ring
+PASS [chromium] sidebar-glow-divider: Sidebar keeps the purple glowing divider aligned with its border
+PASS [chromium] launch-header-caption: Launch page keeps Bring your idea on-chain
+PASS [chromium] profile-progression: Identity keeps its creator and trader progression and earned ranks
+PASS [chromium] trade-action-colors: Trade actions retain green Buy and red Sell with token identity
+PASS [chromium] whale-alert-art: Whale activity keeps the founder’s supplied whale artwork
+PASS [chromium] whale-alert-unmute: Whale activity can be muted and opened again
+PASS [chromium] wishes-lamp-nav: Wishes lamp stays visible in navigation before sign-in
+PASS [chromium] wishes-earned-flight: Earned Wishes rise from a centered popup into the navigation lamp
+PASS [chromium] wishes-two-wielded-badges: Profiles display two chosen achievement badges
+PASS [chromium] wishes-random-lamp: Wishes keeps the random lamp offer and rub-to-reveal reward
+PASS [chromium] wishes-homies-entry: Earned Homies access keeps its wallet-based entry flow
+PASS [chromium] trade-usd-native-toggle: Sell amount entry retains USD and SOL units
+FAIL [chromium] first-buy-percentage-choices: /tokens/launch Missing approved implementation in src/modules/launch-token/components/first-buy/supply-presets.tsx: FIRST_BUY_PRESETS = [1, 5, 10, 25]
+PASS [iphone13-webkit] hero-copy: Approved Solana headline and earnings subcopy
+PASS [iphone13-webkit] hero-type-size: Shrunken headline remains legible and fits
+PASS [iphone13-webkit] hero-hide: Header can be hidden without losing Customize
+PASS [iphone13-webkit] home-section-order: Founder-selected default homepage order
+PASS [iphone13-webkit] home-section-reorder: Homepage sections remain reorderable
+PASS [iphone13-webkit] trending-hide: Trending section remains hideable
+PASS [iphone13-webkit] trending-image-cards: Trending retains large image-first ranked cards
+PASS [iphone13-webkit] all-tokens-layout: Pills first with a premium layout control
+PASS [iphone13-webkit] platform-badge: Approved real logos on token cards
+FAIL [iphone13-webkit] sidebar-buy-claim: /tokens Buy aura pill missing
+PASS [iphone13-webkit] referral-with: Approved /with referral landing
+PASS [iphone13-webkit] terms-one-tap: One branded Terms popup, accepted once
+PASS [iphone13-webkit] no-extra-age-gate: No extra age checkbox in launch
+PASS [iphone13-webkit] launch-single-cta: Launch for free opens both free and paid choices on Solana and Robinhood
+PASS [iphone13-webkit] launch-chain-pill: Solana/Robinhood launch selector stays a pill
+PASS [iphone13-webkit] robinhood-matrix-green: Robinhood retains matrix green theme
+PASS [iphone13-webkit] sidebar-solana-one-click: One sidebar click returns to Solana Home
+PASS [iphone13-webkit] launch-description-banner: Description and banner remain optional together
+PASS [iphone13-webkit] creator-links-later: Social links stay out of the launch form
+PASS [iphone13-webkit] advanced-chart-tools: Advanced chart and its toolbars remain on token page
+PASS [iphone13-webkit] empty-chart-genie: Empty token chart keeps the Genie state
+PASS [iphone13-webkit] wishes-signed-out: Approved simple Wishes entry before sign-in
+PASS [iphone13-webkit] wishes-background: Wishes entry stays free of autoplay and rotating preload
+PASS [iphone13-webkit] genie-nav-logo: Navigation uses the real Genie logo
+PASS [iphone13-webkit] live-network-label: Live review does not regress to testnet UI
+FAIL [iphone13-webkit] lmtless-token-page: /lmtless LMTLESS token page is missing
+PASS [iphone13-webkit] launch-for-free-wording: Launch for free remains the launch form button
+PASS [iphone13-webkit] launch-founder-ceremony: YOU’RE A FOUNDER NOW appears during launch
+PASS [iphone13-webkit] launch-lifting-image: Token image rises during the launch ceremony
+PASS [iphone13-webkit] launch-burst-sound: Launch ceremony plays its achievement sound
+PASS [iphone13-webkit] launch-burst-confetti: Launch ceremony fires confetti while the token rises
+PASS [iphone13-webkit] launch-confirmation-celebration: Successful launch retains its celebratory confirmation
+PASS [iphone13-webkit] launch-progress: Launch progress stays visible during chain work
+PASS [iphone13-webkit] rh-launch-ceremony-parity: Robinhood keeps the launch motion and sounds with green confetti
+PASS [iphone13-webkit] rh-metamask-session: Robinhood retains its MetaMask wallet connection
+PASS [iphone13-webkit] rh-calm-hero: Robinhood keeps its calmer green background video
+PASS [iphone13-webkit] chain-navbar-logos: Solana and Robinhood use their real chain logos in navigation
+PASS [iphone13-webkit] day-night-control: Cartoon day and night switch changes and remembers the theme
+PASS [iphone13-webkit] launch-button-shimmer: Launch navigation button retains its sweeping shimmer
+PASS [iphone13-webkit] quick-buy-shimmer: Quick buy retains the matching hover shimmer
+PASS [iphone13-webkit] trade-success-motion: Quick buys retain the approved token-page success animation
+PASS [iphone13-webkit] buy-sounds: Buying retains its sound across token and quick-buy paths
+PASS [iphone13-webkit] sell-sounds: Selling retains its sound across token and wallet quick-sell paths
+PASS [iphone13-webkit] sound-control: Sound on and off stays available with its toggle chime
+PASS [iphone13-webkit] wishes-dashboard-video: Signed-in Wishes retains the background without an end fade
+PASS [iphone13-webkit] wishes-header-lamp: Wishes keeps its centered heading and lamp balance
+PASS [iphone13-webkit] wishes-dashboard-tabs: Wishes keeps the Shop, Lamps and Inventory navigation after sign-in
+PASS [iphone13-webkit] wishes-leaderboard-avatars: Wishes leaderboard retains user portraits and the Genie fallback
+PASS [iphone13-webkit] wishes-connect-x: Connecting X keeps its connected state and celebration
+PASS [iphone13-webkit] wishes-scan: Wishes retains the Scan for Wishes control
+PASS [iphone13-webkit] wishes-grand-wish: Grand Wish retains the special reward and lamp presentation
+PASS [iphone13-webkit] wishes-corners: Wishes dashboard keeps the approved rounded containers
+PASS [iphone13-webkit] creator-social-icons: Creators can add social links later with small token-page icons
+PASS [iphone13-webkit] creator-listing-guide: Creator listing guide keeps CoinGecko, RugCheck and DexScreener
+PASS [iphone13-webkit] vanity-launch-ui: Custom token addresses retain delivery estimates and progress
+PASS [iphone13-webkit] genie-reveal-retained: Hidden Genie reveal technology remains preserved
+PASS [iphone13-webkit] marketplace-retained: Hidden NFT marketplace remains preserved
+PASS [iphone13-webkit] profile-identity: Profile identity remains connected across the product
+PASS [iphone13-webkit] page-footer: Footer stays at the bottom without covering content
+PASS [iphone13-webkit] hero-video-framing: Homepage video keeps its approved full framing
+PASS [iphone13-webkit] canonical-discord-invite: Public Discord links keep the approved uselimitless invite
+PASS [iphone13-webkit] genie-support-particles: Support Genie keeps its gentle floating dots and purple circle
+PASS [iphone13-webkit] sell-percentage-presets: Small sell buttons retain 25%, 50%, 75% and 100% choices
+FAIL [iphone13-webkit] wishes-reward-float: /wish Missing approved implementation in src/modules/wish-hub/wishes-app/passport-client.tsx: window.setTimeout(() => setReady(true), 2800)
+PASS [iphone13-webkit] wishes-rank-finishes: Wishes ranks keep diamond first, gold second and silver third
+PASS [iphone13-webkit] wishes-replay-share: Earned badges can be replayed, downloaded and shared again
+PASS [iphone13-webkit] wishes-sticky-header: Mobile Wishes header appears when the main heading scrolls away
+PASS [iphone13-webkit] genie-rewards-retained: Genie rewards remain while staking and marketplace navigation stay hidden
+PASS [iphone13-webkit] hero-real-token-pills: Floating homepage pills remain connected to actual tokens
+PASS [iphone13-webkit] wishes-earn-energy: Earning Wishes sends purple energy into the lamp
+PASS [iphone13-webkit] wishes-unlock-art: Lamp, Genie and crown unlocks keep their own art and escalating celebrations
+PASS [iphone13-webkit] wishes-avatar-frames: Avatar frames keep users’ own pictures with a separate decorative ring
+PASS [iphone13-webkit] sidebar-glow-divider: Sidebar keeps the purple glowing divider aligned with its border
+PASS [iphone13-webkit] launch-header-caption: Launch page keeps Bring your idea on-chain
+PASS [iphone13-webkit] profile-progression: Identity keeps its creator and trader progression and earned ranks
+PASS [iphone13-webkit] trade-action-colors: Trade actions retain green Buy and red Sell with token identity
+PASS [iphone13-webkit] whale-alert-art: Whale activity keeps the founder’s supplied whale artwork
+PASS [iphone13-webkit] whale-alert-unmute: Whale activity can be muted and opened again
+PASS [iphone13-webkit] wishes-lamp-nav: Wishes lamp stays visible in navigation before sign-in
+PASS [iphone13-webkit] wishes-earned-flight: Earned Wishes rise from a centered popup into the navigation lamp
+PASS [iphone13-webkit] wishes-two-wielded-badges: Profiles display two chosen achievement badges
+PASS [iphone13-webkit] wishes-random-lamp: Wishes keeps the random lamp offer and rub-to-reveal reward
+PASS [iphone13-webkit] wishes-homies-entry: Earned Homies access keeps its wallet-based entry flow
+PASS [iphone13-webkit] trade-usd-native-toggle: Sell amount entry retains USD and SOL units
+FAIL [iphone13-webkit] first-buy-percentage-choices: /tokens/launch Missing approved implementation in src/modules/launch-token/components/first-buy/supply-presets.tsx: FIRST_BUY_PRESETS = [1, 5, 10, 25]
+KNOWN (pre-existing, not blocking): first-buy-percentage-choices, lmtless-token-page, sidebar-buy-claim, wishes-reward-float
+APPROVED-LOCK: 85 features; 4 broken; 0 cannot measure; exit 0

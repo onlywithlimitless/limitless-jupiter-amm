@@ -1,0 +1,17 @@
+[package]
+name = "limitless-jupiter-amm"
+version = "0.1.0"
+edition = "2024"
+publish = false
+[dependencies]
+jupiter-amm-interface = { git = "https://github.com/jup-ag/jupiter-amm-interface", rev = "95bd18485e580625a39eb92a0c0ad2061579daad" }
+solana-account = { version = "4", features = ["serde"] }
+solana-pubkey = { version = "4", features = ["curve25519"] }
+solana-instruction = "3.1"
+rust_decimal = "1.36"
+primitive-types = "0.12"
+serde_json = "1"
+base64 = "0.22"
+sha2 = "0.10"
+[profile.release]
+overflow-checks = true

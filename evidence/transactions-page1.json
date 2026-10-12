@@ -1,0 +1,611 @@
+{
+  "data": [
+    {
+      "txSignature": "2XkE1XQHUGJxhg1eyPFWcGqbcWjHPLTFr97At4As53jLr3gUHeFjmtAFFm2YNqKGrpdK4G765LdYiwXb9wqxCZJ4",
+      "type": "BUY",
+      "createdAt": "2026-10-12T09:26:56.000Z",
+      "amountSol": "0.008960270000000000"
+    },
+    {
+      "txSignature": "4GEUMVogZLTDnHsiV36H5BTBhPwbfGW4Wp1sYLyQg27qZRCEUUQdat35J5syc7ryGzcd6PnmDyzyzajdhNZnTHMT",
+      "type": "BUY",
+      "createdAt": "2026-10-12T04:50:06.000Z",
+      "amountSol": "0.000887273000000000"
+    },
+    {
+      "txSignature": "ohALFLPguatFbUa2MAA7iu3RowxoqxQdQJ6m8hPNd8pFv59ooiv6dvfCg9QSNfSGE7rbFsFpFLUH2X4LrmwVrcw",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:35:05.000Z",
+      "amountSol": "0.001080062000000000"
+    },
+    {
+      "txSignature": "3WWx5ehC9UnMQpV7R73ZwRJLpHgp31UGnaZoGbG9d3o39L2GueNFgKjxsxb7bcyHezmJQ8PqjLA4PvamB5uGfRnU",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:20:38.000Z",
+      "amountSol": "0.018667478000000000"
+    },
+    {
+      "txSignature": "4BtWDtDKUVsfw3q5JR4gncv16Jf3XgcCgPs2rge23eakonwaapFXnfwP4ycrGuL83j12WpaetNqiRXRXjACLJfD6",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:20:25.000Z",
+      "amountSol": "0.009011383000000000"
+    },
+    {
+      "txSignature": "2tSuny9vG5BuiqDh8y3XQk9LruYj2HfMGBncfUSgcsGFUoYFWFQraQAVV15s5pVWM3ausKi3XQQZQTeNVSP26peo",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:20:13.000Z",
+      "amountSol": "0.003294788000000000"
+    },
+    {
+      "txSignature": "BHgDyqDf3WkZrZcJBRHz4LYC4dQxdmR2CFX6FN2kzw4jVGBbLvpE3z23ecDbbJP11BBwmNNqNHdWmSUc31fbLy3",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:20:07.000Z",
+      "amountSol": "0.009007658000000000"
+    },
+    {
+      "txSignature": "2KcizhigiJEtzEtBGUrTnVV7cATQDByZzBwKsgsW9WPZZhL5uwkGkuXMunEkTqcL5qfhj47uWSQXBs4bTXh8UrJb",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:19:54.000Z",
+      "amountSol": "0.013180468000000000"
+    },
+    {
+      "txSignature": "YeYe16pRbsp2BtppPW81FCYk5NX9kgR5ndrd4E4yyUAMvafNnBX8M12e8CJu4QNaNEc2f8JonErqugGxeyrgYNA",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:19:45.000Z",
+      "amountSol": "0.009007658000000000"
+    },
+    {
+      "txSignature": "5JV3f1RzBCYykyXg8ojYy1jZdf6PU2CrodEarrWPVEqc5qrvGShiucF4qHUQTU6epqm5HdzD3kwjdtVZK2yAo4MN",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:19:12.000Z",
+      "amountSol": "0.009011353000000000"
+    },
+    {
+      "txSignature": "49i5ZZoMJZztehzWRez9WLJPmjUqV4qMECRtWXAsiDTnoPsQGYGsQYk7Agx8KYbkBRCUD64r6wMvY27e1m3BWQ7E",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:09:50.000Z",
+      "amountSol": "0.003298006000000000"
+    },
+    {
+      "txSignature": "2gipStGBF8NM2n1BkswZyGJqgp3GaWfM945AXokpkZmAAYpw7zdTcgSK8Ej4moexWzPNoAcjrMHjbmgu2AKpvcNc",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:09:25.000Z",
+      "amountSol": "0.004398483000000000"
+    },
+    {
+      "txSignature": "4PLEbWPWt19qyCA9BNV74ERh3EibPYZi83VMg4kg9gqvAVfwj6WCNB121F3ujuL3NNgiWo2dQWj8FSi8nYPDYhyR",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:09:14.000Z",
+      "amountSol": "0.009019745000000000"
+    },
+    {
+      "txSignature": "JuMA2nRgckKamndcGPbCJAjXhP12eUVZcfL78nHvUaw8G1RnSYgx2LTCtPXgGjpL3oWC61dZ2KFY5MoZRPK6q8B",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:08:58.000Z",
+      "amountSol": "0.006599543000000000"
+    },
+    {
+      "txSignature": "3YYQBPxpKaXqKqu4tYe6HRpepDdkXcZsvfE2apcmAK9tesJsuuqExhS3wksHgct3fNU2xofsr8ZS1wzUAYKMTUii",
+      "type": "SELL",
+      "createdAt": "2026-10-11T22:08:47.000Z",
+      "amountSol": "0.002200501000000000"
+    },
+    {
+      "txSignature": "4jeTsRhd5HaZB1vdwbfrmSsnzzwu33X5jDhRmmGbmfBFt4wBbQjsXbrFQ9LSgBh2Kztxu4243N8jDxhmqSadDFTn",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:08:01.000Z",
+      "amountSol": "0.009024239000000000"
+    },
+    {
+      "txSignature": "4V1n87VnPwx5WHGeHDBpVvpv3dRHshjaj1bLguS6eEMV3A5hsVFgTGm8LN9Yc8yeeiVs2GMeHA6kp7BNW8ciZcBi",
+      "type": "BUY",
+      "createdAt": "2026-10-11T22:04:16.000Z",
+      "amountSol": "0.009036849000000000"
+    },
+    {
+      "txSignature": "2Pbid5Bwe6cJryt22MPvTsnr3BLs8CEDzoXxYsLMj8wSchdpNzzjeCrSU8NViWPFK7HPq1z6JSMLCiv3WT2fS6Qz",
+      "type": "BUY",
+      "createdAt": "2026-10-11T21:29:43.000Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "32WGFoidsiUPBAwKyZqR59BBnFLNmgMaRVbo5EP1Xr9Cez2vouyHuVNbKgADSULbxrsuMDjbEbWAnkyB8ZQsvoQS",
+      "type": "SELL",
+      "createdAt": "2026-10-11T20:15:50.000Z",
+      "amountSol": "0.000975156000000000"
+    },
+    {
+      "txSignature": "4LzBVE9swGttK9ZFrfFZeNQ9ZkLgcZmAkfKdYnZdWFVV1bTHhfFervY7jGN2BymTn92aFLeXvGSUyW3RqwkLP3Wj",
+      "type": "BUY",
+      "createdAt": "2026-10-11T20:15:14.000Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "3ZfhdmHMHPRhUSxGF2msoPHMYk2FjKjF6sS9PPLtDuaDAYhSkKFoGdD1mu9Dg9g22P9kKcKLpxK9yjFZXF55Vmw2",
+      "type": "SELL",
+      "createdAt": "2026-10-11T19:21:17.000Z",
+      "amountSol": "0.000975188000000000"
+    },
+    {
+      "txSignature": "5maNEKRdNY3199mZpAubpV8LujyuwPKCBYGhjW49jofxfev5h3VENjXyqhtFkAkNjZRD5KwKwXcdMUMNfDA2s4U5",
+      "type": "BUY",
+      "createdAt": "2026-10-11T19:20:54.000Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "5nPowNVh3moMpPUcedVX75WebwSJAmsthy8U1YrjhnyKWEb3MQEdCjoXp52oozpgMZRRswPRSc5JLmB2AnqE2fcE",
+      "type": "BUY",
+      "createdAt": "2026-10-11T19:20:28.000Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "23CYo1FCPEok9ojHAQzoBqPAVGXdzHSKpmZdNC9uUD11RJoL4Qan3aiNVQUd1KUoJqJn8i2awJXTjsULbaC34HmN",
+      "type": "BUY",
+      "createdAt": "2026-10-10T20:49:51.000Z",
+      "amountSol": "0.009065764000000000"
+    },
+    {
+      "txSignature": "5ypHqybk5GCFgWBp1zk8gbuS2pd3zEdx6bKcLzXQ2quVdcxdbnYntG22gm8rbQ7tACu2piMrsZXPAPacY15GTpsS",
+      "type": "SELL",
+      "createdAt": "2026-10-10T20:49:39.000Z",
+      "amountSol": "0.004422124000000000"
+    },
+    {
+      "txSignature": "3yKxnX77PYVhouLYJe8gBMkN1FjzdAsxqaLLDPsrP3DL3sCiVHZTbADLvT7hVrZJiCMeF3F3uNfZwmm7TFuzkPtY",
+      "type": "BUY",
+      "createdAt": "2026-10-10T20:49:25.000Z",
+      "amountSol": "0.009066052000000000"
+    },
+    {
+      "txSignature": "Z11pMyfwcKg9Xdsr96gDEqJ5UGrXRFXjTx85PnCiCsjZv5Fjj54PoheNh1SUJGDNA7vNfJXPXvFDuiaaVF4npTP",
+      "type": "BUY",
+      "createdAt": "2026-10-10T20:48:56.000Z",
+      "amountSol": "0.009064973000000000"
+    },
+    {
+      "txSignature": "3RqJwxxeSgMBX3nJkzzm6dro1K6KSch5prV8yYdEv8JJDmqhbvRCqG4uHaskdf8oWeom55MgEErbCBMtnBBGWPF7",
+      "type": "BUY",
+      "createdAt": "2026-10-10T20:44:31.000Z",
+      "amountSol": "0.009067762000000000"
+    },
+    {
+      "txSignature": "4ynHWd7fJzKdmCHccbE5d4MCtf5zd1fWduLHeQbniJEnYTzkhvaFRr7HLvTGTejPBcwoS7G91EktcricH1hrxMxN",
+      "type": "SELL",
+      "createdAt": "2026-10-10T13:23:07.000Z",
+      "amountSol": "0.017761440000000000"
+    },
+    {
+      "txSignature": "678bLJ4RG61DptvCRz22t8GHupyhEgjt7KAk7YUF5Yqnx8d5cHezLBcekiqoXfo42dbozUNWB78eNoBtEAJKtV3n",
+      "type": "BUY",
+      "createdAt": "2026-10-10T13:22:57.000Z",
+      "amountSol": "0.009105732000000000"
+    },
+    {
+      "txSignature": "5f1tsr4ssMVVmvDEuWdxDBPur7oHCA1RhgLYv7P13aarKSmG1w8gyf66HnnJoYHJkpvVxt87gMsDy6QipQUWod4e",
+      "type": "BUY",
+      "createdAt": "2026-10-10T13:22:14.000Z",
+      "amountSol": "0.009108210000000000"
+    },
+    {
+      "txSignature": "5sufVADR2aQfjeV6DVsTboWnhC9W9vQgQFLK9gH87WgD9apmg1BAz6zcAGg7HtDfk9LJ3yH1cLhd76U6jLy7ksvi",
+      "type": "SELL",
+      "createdAt": "2026-10-08T08:44:32.000Z",
+      "amountSol": "0.278692380000000000"
+    },
+    {
+      "txSignature": "SzzsjnvTYxyPWVjiq4Vb2DvYqsQsDeEGUHMu7GYM6M2ot4qtpe3eBPQxjWW2LEcZ4Jzy8c4bSYADQp2QbLLrAzf",
+      "type": "SELL",
+      "createdAt": "2026-10-08T08:44:22.000Z",
+      "amountSol": "0.009751562000000000"
+    },
+    {
+      "txSignature": "22kegioesV7bVE5mdNyBwAWTsDEXHnduczszvsxhGJdnXzruT9BSgeGvpozgXiYaV5JeKULLYzBk8DMxJgsX4jw5",
+      "type": "BUY",
+      "createdAt": "2026-10-08T08:43:29.000Z",
+      "amountSol": "0.010000000000000000"
+    },
+    {
+      "txSignature": "5cQcFAJNkpgYpVcdquuocGmR15WHh1Z4WXsRKHZjkiGwnbJ4S49v2XanUkvLmb7xpe6bwxsMWsSoE3RBVRVxDMLQ",
+      "type": "BUY",
+      "createdAt": "2026-10-08T08:42:31.000Z",
+      "amountSol": "0.285792537000000000"
+    },
+    {
+      "txSignature": "3M35DvBF3MvoBaA3wMqDUZ3VZ9KRGNcs9CQDtvA9iVvEc7G3nbMAiXr2yLJPpNxvpB5XPW9n4wwyYxEJjST3myWN",
+      "type": "BUY",
+      "createdAt": "2026-10-07T20:52:01.000Z",
+      "amountSol": "0.290000000000000000"
+    },
+    {
+      "txSignature": "5Jy6tkiuQ48a9AsFEbkNpyn88txRt5Tgij7UTKY449FcTyKH3oBGcimpKCsZzCLDHNFXVb4oQ9PF2uBptSnfXKGf",
+      "type": "SELL",
+      "createdAt": "2026-09-30T11:40:30.000Z",
+      "amountSol": "0.034169745000000000"
+    },
+    {
+      "txSignature": "3hqSdaBKsEUbo36zMbkCavv1N3suDnREyfUEGQojEwo7Gd9Su85vDqoRsDAanz9vgqvhK2aQNGxxq1UzRH2aL35s",
+      "type": "BUY",
+      "createdAt": "2026-09-30T11:40:22.000Z",
+      "amountSol": "0.020000000000000000"
+    },
+    {
+      "txSignature": "2xkCevU9X5pXV8meu4D45LsZWX65qCie9waERNw2cGBqt5abn1gJkSYF8P6ZJayUKpmWqow1CjS74Rn6G4xEL9RM",
+      "type": "BUY",
+      "createdAt": "2026-09-30T11:40:12.000Z",
+      "amountSol": "0.050000000000000000"
+    },
+    {
+      "txSignature": "3Pa87c3kx9GTEXY4qfVJYgmDWWi7sX6hjkz8F1TsaePMH9imLASHNtaJmS1ENqmhtozH2iwLeGvAqyxNQsJs5L5F",
+      "type": "SELL",
+      "createdAt": "2026-09-20T22:49:29.945Z",
+      "amountSol": "0.043882031000000000"
+    },
+    {
+      "txSignature": "3Xi2Ue71YYM6ikVanZcVkpGdrgDaC8FxL242CyesS9nZp3TaahfS6DCjN8yGyoUiL7rNtKsSu2odbpS6KCwQYEG1",
+      "type": "BUY",
+      "createdAt": "2026-09-20T22:46:39.452Z",
+      "amountSol": "0.020000000000000000"
+    },
+    {
+      "txSignature": "4BAxjCcpb295YB5d2rjthcH2vf93tJN3CJn6p7qbGdMgiErH2SwnUX69snGyhSucDWFbpeXARyrKFo9nSzAA4tR4",
+      "type": "BUY",
+      "createdAt": "2026-09-20T22:40:40.641Z",
+      "amountSol": "0.025000000000000000"
+    },
+    {
+      "txSignature": "5wR43iPtRiK82DDbm7cDT662bV7JCUREHYSH8eTqnwDLLjxqEtoQJo8aBChmcP1VuUAjwVEYhygsWWnnGc738y58",
+      "type": "BUY",
+      "createdAt": "2026-09-20T21:40:19.631Z",
+      "amountSol": "1.002658227000000000"
+    },
+    {
+      "txSignature": "4EMapPJiEf5g65kaWSKQkwAphFWtNWMkryxAHHqYaw9JKgcWW5xqstjBYeNxpgotmxFDE9JjRJhMFURB7G89FJ9B",
+      "type": "BUY",
+      "createdAt": "2026-09-20T21:40:10.566Z",
+      "amountSol": "0.010000000000000000"
+    },
+    {
+      "txSignature": "4hDqc1ANLTMi5E4SbE1PymES5jCyj1twJSmNoM8u2jBQcBqsinT2AjkPKJzkXpCRqFXurqukcbHAW34YJdeGiHu1",
+      "type": "SELL",
+      "createdAt": "2026-09-12T11:34:19.334Z",
+      "amountSol": "0.146273438000000000"
+    },
+    {
+      "txSignature": "AhM9MWLWGdhp7fKfaq3fKwHHkcrG6efhnkaTEFWk1Er3Bz5R2A4JLy7MnKLWU4y4JTroaPWMgiEBa3qf4wKevrN",
+      "type": "BUY",
+      "createdAt": "2026-09-12T11:22:46.078Z",
+      "amountSol": "0.100000000000000000"
+    },
+    {
+      "txSignature": "52nTZkYYzJQkcRWFGSWgcK6skVjycqFXzELWgEXmqRbbUPCp1Ui6xwUzpCtNmpdarpwaEbcaKQmcURJC6FywFEae",
+      "type": "BUY",
+      "createdAt": "2026-09-12T11:22:44.829Z",
+      "amountSol": "0.050000000000000000"
+    },
+    {
+      "txSignature": "43kfFHcuGkqJgs2qLzXcawvtpS12LChtMuy8kCbHC4xjMYRDLQJy8CXGE5MvaPe3NU8Wa86SonunFHVYA6NgGyLn",
+      "type": "BUY",
+      "createdAt": "2026-09-05T01:24:02.865Z",
+      "amountSol": "0.050000000000000000"
+    },
+    {
+      "txSignature": "2br9naHHmEbxD2L9TQfRMfsnoBkSvk1Hn7AKN9eoxxDbV8R8MacBCCcCrrbGS8ZcdZmf6TRGqWfUheu1Thx2BqnV",
+      "type": "SELL",
+      "createdAt": "2026-09-05T01:23:59.941Z",
+      "amountSol": "0.146273438000000000"
+    },
+    {
+      "txSignature": "UMkL1rS5eF5G6H88XHPQBbRstU3JBPn7VcnTWJXfJma3wt3oRMPsCbsSaj3JxMfu11gfhWM66QdDCYkUu8Ay9Wd",
+      "type": "BUY",
+      "createdAt": "2026-09-05T01:23:59.194Z",
+      "amountSol": "0.100000000000000000"
+    },
+    {
+      "txSignature": "5wmwusj746MvKo5Q2qiaPLBAJJnXRQfWpDrJZh44rmVjheijTqAXqqAdm9F4aAhLMGp2QUc4cYuFUePnriBwpZkS",
+      "type": "SELL",
+      "createdAt": "2026-09-04T14:05:59.125Z",
+      "amountSol": "0.005850938000000000"
+    },
+    {
+      "txSignature": "4h8Eg6fd2388Lg94RNjyj6BqxW3ZpqgDFw7CvDdQHsuQjSvPwFDTgvYR1hqweEzCkk9ixx7jCCcncCZ9M8AhmELh",
+      "type": "BUY",
+      "createdAt": "2026-09-04T14:05:56.970Z",
+      "amountSol": "0.002000000000000000"
+    },
+    {
+      "txSignature": "5u72xwzhHa17ywtHj7wy3GzwUvpUkA5mpug4bqEUecJsiQzBiPLNUMaNNUKw6ATU6FFzVnqbdHjdSmpPjAs9XL42",
+      "type": "BUY",
+      "createdAt": "2026-09-04T14:05:54.433Z",
+      "amountSol": "0.004000000000000000"
+    },
+    {
+      "txSignature": "4XudXet47AbBCQfC4P6iVmJnf2LqtqYYHPqqZUrgo96LKQfkCAWB4AJBmLWmmbKgE2uTBtpSJpVvsjD6qV3Jzk8h",
+      "type": "BUY",
+      "createdAt": "2026-09-04T13:20:43.165Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "nCxdmi4EWppzUWKp2fxepy6mJiFnq3fHEfXVN44QMMwiFBsZVXeMLLLJUqgwRdj19Pq7RdtV2BxiVvYQZY5kMsC",
+      "type": "BUY",
+      "createdAt": "2026-09-04T12:49:39.726Z",
+      "amountSol": "0.002000000000000000"
+    },
+    {
+      "txSignature": "3vq1bRVjMc7JkyHPi19eLhgkkvy78z53oDoP5m1DhAHGPDhTFpfKwMhkbP1aipHiwVhfRqac67SkUjhDqj3up97u",
+      "type": "BUY",
+      "createdAt": "2026-09-04T12:49:34.801Z",
+      "amountSol": "0.005000000000000000"
+    },
+    {
+      "txSignature": "51AeRCUBef7VTTSpVkSjSHnfcuzFmqVuDu1xHRr6vWkhvSjk1nBcShd5y4dHojdsevocGzk7dALj3Y7hv5Gf7Yx2",
+      "type": "BUY",
+      "createdAt": "2026-04-25T17:37:02.663Z",
+      "amountSol": "0.000116732000000000"
+    },
+    {
+      "txSignature": "X9jCQbdAZ83gehKuHF8tJ1nKQzptUvnapRtEg7u5QwNAaTXvvDS9VVzoZCTuatep2fy3cjJbs3n6Ewu6KfNyJNC",
+      "type": "BUY",
+      "createdAt": "2026-04-20T15:50:03.657Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "2dbZoAxUB4fFSFqTWTjRDdvysQg1r78cdjWNkAHBzYo75zSqF6K6m4cWxcXnS3HHRq3NPzpYT7c8D6B7VT38eGqL",
+      "type": "BUY",
+      "createdAt": "2026-04-20T15:13:10.193Z",
+      "amountSol": "0.000025000000000000"
+    },
+    {
+      "txSignature": "29LdWdYvTzLJ9AaJrpF56UUjhF8kQrPYmzj3gqUqR5tVZhsN3TiwxdqFo7muPfhvXVurPbwC2YAdE9rGxHMZiZvX",
+      "type": "BUY",
+      "createdAt": "2026-04-20T15:11:33.316Z",
+      "amountSol": "0.010000000000000000"
+    },
+    {
+      "txSignature": "AYVcDNqiYBFYc7FDd7NgmzFAUz5gh8bXv26qCF5aS2gVkb5cX31B3s7EnFMuhkZZ4zwNwiuLk3cotiCz3L8mC2J",
+      "type": "BUY",
+      "createdAt": "2026-04-20T15:10:27.449Z",
+      "amountSol": "0.000118085000000000"
+    },
+    {
+      "txSignature": "5iVA69W5pa3HkmWX7YzqzgcJXo3nHVGYHRr7Z6iUfpnjzaq1iMMncp9C6mFgCoNXD9M8wADsP4wXabmTyuxgaMdJ",
+      "type": "SELL",
+      "createdAt": "2026-04-20T00:23:31.362Z",
+      "amountSol": "0.001413521000000000"
+    },
+    {
+      "txSignature": "55DhNu6BGqA6uzb9YeupCp9dubJaMpJe95dpztiK2XwiRYAQngVjDP5LStPBcvZ48JrnNrPshqB566Eu8ZKn58yr",
+      "type": "BUY",
+      "createdAt": "2026-04-20T00:21:47.773Z",
+      "amountSol": "0.000119774000000000"
+    },
+    {
+      "txSignature": "22k3awfy4fVFvLBSynSzmETNLEyvArQG8jivU23UThCG52aB419nAknLKraMbnWbeKmUtvAroritLSuPi82uEym1",
+      "type": "BUY",
+      "createdAt": "2026-04-20T00:17:20.199Z",
+      "amountSol": "0.002824403000000000"
+    },
+    {
+      "txSignature": "4ULnG5e45BHgTRvg6FQFG7DmgqXuz83jAXy2xhUVVeGRb5dbSiiNJ9Xodf9LRgXZ1oQZw5jcmsHKu98khifakKMi",
+      "type": "BUY",
+      "createdAt": "2026-04-19T23:54:36.436Z",
+      "amountSol": "0.001000000000000000"
+    },
+    {
+      "txSignature": "2pEC8BtCqCJdchRCtPDjVJDpxKAR3Xgk8SdKKdNLfs7fiShHVubFuXqG4ZbXzKtaMcfJexFVvmhNqmvTv5AactYh",
+      "type": "SELL",
+      "createdAt": "2026-04-19T23:29:56.487Z",
+      "amountSol": "0.005864928000000000"
+    },
+    {
+      "txSignature": "5vRuXXpCmHrgUfTAGdvpQ4gg6FVikdiujmVidS3CgPeN5qr2bgjSuoRpHRuV1upF8kkzA6LUte59AwZqDHpcwaLK",
+      "type": "SELL",
+      "createdAt": "2026-04-19T23:29:47.881Z",
+      "amountSol": "0.002933333000000000"
+    },
+    {
+      "txSignature": "3xVbkvGTeiUHHgZHUddVWEQth3u7pjR3yU2NQdsnsTKCe7k2UpjSxjf1Kq3tof5hAAcymcX43RhuBeV8CDCdBLKW",
+      "type": "BUY",
+      "createdAt": "2026-04-19T23:28:10.399Z",
+      "amountSol": "0.011968018000000000"
+    },
+    {
+      "txSignature": "2ku8ZzPcyAJpqVqvHbPsvoadp2tRU3Vuc7yesW8hbyFHBeAFh2TkBsiddNrJJZCU49vmvHEa62M7JXDKkdZcUrUc",
+      "type": "BUY",
+      "createdAt": "2026-04-14T11:49:29.717Z",
+      "amountSol": "0.000025000000000000"
+    },
+    {
+      "txSignature": "5axhGqfHECNK83X3cUpRYK2rLXQC1aZC5gjEPLZQ9F18zVoMWN1TWqYJzAYS5NUEcGdgahDcqWiuzB9uuJHEjEjK",
+      "type": "BUY",
+      "createdAt": "2026-04-14T11:49:18.438Z",
+      "amountSol": "0.000025000000000000"
+    },
+    {
+      "txSignature": "5ym3CsuJJarRmQeCvkGggPKnzEKBvJrLjcvf3u5UGe5wRayqivVkQYaWiUkBhGmj4zMjCuHnNvrot5VA4FZgivfS",
+      "type": "SELL",
+      "createdAt": "2026-04-12T16:44:09.396Z",
+      "amountSol": "0.000051248000000000"
+    },
+    {
+      "txSignature": "4G5e5SNmY4k9LJUcavX8KmuxafuqbD1FgKxRrTjQ7wz9koB2XquNpT2Sddq3avVdcgQQVD6t1doDWsVwusLoeZLn",
+      "type": "BUY",
+      "createdAt": "2026-04-09T23:20:51.970Z",
+      "amountSol": "0.002183713000000000"
+    },
+    {
+      "txSignature": "4QYVYT27aiJRdrQfgzzYVFZhmdJAseL44quPKcAJ7qjPiPL2hN8mcNznZmxQcmTJBdgTawRXQoQAMt1GYCu84Nwu",
+      "type": "SELL",
+      "createdAt": "2026-04-09T15:41:05.882Z",
+      "amountSol": "0.000024902000000000"
+    },
+    {
+      "txSignature": "RZAbSGdPmdqiV6jTnGgui7wLZKRoiSC9chnHrDmovGawYu8mjkiiQW9BmhiFj3aoB41vhUFtHeYwidjfJnJKEXg",
+      "type": "BUY",
+      "createdAt": "2026-04-09T15:40:04.328Z",
+      "amountSol": "0.000145388000000000"
+    },
+    {
+      "txSignature": "5SrWTXQd4iAbBqdEaKfZzdRBY6UwtUqZfG3nPi7Zy4DVKZCRuUGjXBxV6jwsLQ8BZDFGXLPY1YCCbJdnxP1MXPTN",
+      "type": "SELL",
+      "createdAt": "2026-04-09T11:21:03.002Z",
+      "amountSol": "0.000020850000000000"
+    },
+    {
+      "txSignature": "4jfGW6CaYfH5rtQfgwXA3CmcBL9DQbC5tTLzvKWG7xs3KtaujNjXc45uZWZ6kd5Am5H9yKMqr2655ftkfrJ7WCb1",
+      "type": "BUY",
+      "createdAt": "2026-04-09T11:19:17.483Z",
+      "amountSol": "0.000146606000000000"
+    },
+    {
+      "txSignature": "4Kp6fSFr9QzyJCqHWz9fDEi1HSREEHF5b84wehBAgUSNjLm1mYUqe143y8bKeJkDxiBoCNWF5MURqApDSayCEdj2",
+      "type": "BUY",
+      "createdAt": "2026-04-09T11:14:59.033Z",
+      "amountSol": "0.000146486000000000"
+    },
+    {
+      "txSignature": "4RXKfCPhGi4hjeMz8rD4wv7f7L7Y3MjmJL1TWodr6LReQJ7NWcvBjj6T2ZyRCBXRRSX8ebjwisom3VoneqXe3pM2",
+      "type": "BUY",
+      "createdAt": "2026-04-09T00:23:43.305Z",
+      "amountSol": "0.002185376000000000"
+    },
+    {
+      "txSignature": "3arXE2x5GnhEzgT34ZK2n5tAKtT7taXwGBAnPpi2zaGYT5puioCWLgUCAH5MyLh5wNh6gGDSVAdDHF1vnqUyYLCd",
+      "type": "BUY",
+      "createdAt": "2026-04-09T00:09:51.031Z",
+      "amountSol": "0.000146032000000000"
+    },
+    {
+      "txSignature": "4eVe5Mxca2awZHvqirpBsErhzEZyhKd14nt8zajmMf4n59iNCNZLg6DQe95DbUuHR7GXPfJUU9SE4uTCPRUxBZRq",
+      "type": "BUY",
+      "createdAt": "2026-04-09T00:09:41.172Z",
+      "amountSol": "0.000146042000000000"
+    },
+    {
+      "txSignature": "2m3RqjUfnF7HxR2tWNg3CKw7uyZH3r9Ra1VrH962cXExEkdMThM9oMyQFzQeN2zQd1UQCsKQZZyp7EyJTwqUo8Ry",
+      "type": "BUY",
+      "createdAt": "2026-04-08T21:00:05.169Z",
+      "amountSol": "0.002184420000000000"
+    },
+    {
+      "txSignature": "4hfz117wsFXZisEvh17nnqwMvFfGA9re96Mmin2qrD6A4V9vk9vvaWLcLDshGUtDjwbfH3SFNMCoVQj9Yddx6KwJ",
+      "type": "BUY",
+      "createdAt": "2026-04-08T20:53:52.737Z",
+      "amountSol": "0.000145133000000000"
+    },
+    {
+      "txSignature": "3ctsGuckGgzSyKVDR3twQg1P6xwp5bYYEtR7rwCwJe57tMKBo3zgPLyfVVd4gFtx3YX4BktNJrabEaMEniDbX2yZ",
+      "type": "BUY",
+      "createdAt": "2026-04-08T20:16:45.340Z",
+      "amountSol": "0.000144983000000000"
+    },
+    {
+      "txSignature": "4R42ELGKFvJtc8uBWB6ygzBTV4gpfSSiWMbiqhQcwAT2V6dxtDpkBGnWnzKcaU4JW2w7hjfbFcyoHGFJxsorcM56",
+      "type": "SELL",
+      "createdAt": "2026-04-08T13:55:27.614Z",
+      "amountSol": "0.000066700000000000"
+    },
+    {
+      "txSignature": "3WtCeBHdLnFxtH6SxzJrkCNmjk3C4SrfNtxJfeDtLPvyucTs7JxokeqDx5669bupDndRMevxYgXi7GMvWhpcpkGf",
+      "type": "BUY",
+      "createdAt": "2026-04-08T13:54:53.143Z",
+      "amountSol": "0.000143832000000000"
+    },
+    {
+      "txSignature": "3HMJApugNGidEDzpN6as6BqBBwYuAtK8mnA7fTadspz5PfZNLGuag9KD9h71whEQu5Z6BQnP1KXSvS1sHnMUT4cf",
+      "type": "BUY",
+      "createdAt": "2026-04-08T13:54:38.738Z",
+      "amountSol": "0.000143832000000000"
+    },
+    {
+      "txSignature": "5Mq2YbT2ZknvSQRokwXysJn3HwdRG6XxCRuqTmPZ1s7DXh9fE8Z5AvBhuLvSF2qsUagsrvCf3ySvN5X6pUdC7iT2",
+      "type": "BUY",
+      "createdAt": "2026-04-07T20:58:56.047Z",
+      "amountSol": "0.000147089000000000"
+    },
+    {
+      "txSignature": "2gPKQxbh3ybWoLCwYwdESCSw73nNR6J8aYdkkBAgPETSG86NmQdKXnVj2bEdef8xs1zu8CZXZYAbDwYSwZG7aUV4",
+      "type": "SELL",
+      "createdAt": "2026-04-07T13:55:07.411Z",
+      "amountSol": "0.000279993000000000"
+    },
+    {
+      "txSignature": "31YWNfHktDU2vW2jTGT3bTNeURZaRqEJtktpesSjvdF7fBiCp2ypp3ex15Quu7hCNajfAAsazqkvZaiEPs4YYxve",
+      "type": "BUY",
+      "createdAt": "2026-04-04T02:24:31.380Z",
+      "amountSol": "0.000149748000000000"
+    },
+    {
+      "txSignature": "kHtgyiGnHBwKKkqcjTRsx72Trnuq7z2KEoazXyvZJ58QMka5w6SzX2XYtf5C86ziPXNjcaCn7cyUtJA8bPdG6Xs",
+      "type": "SELL",
+      "createdAt": "2026-04-04T02:09:05.148Z",
+      "amountSol": "0.000219335000000000"
+    },
+    {
+      "txSignature": "2Pfe3mxRF1vWFPqDe9mARxB5WDdkh62MFzSsMMEZR5gf2WC1s81VkYkMCdzzViYWQuGLWvoipMSNpEKW3Pr4LEbz",
+      "type": "SELL",
+      "createdAt": "2026-04-04T02:08:21.281Z",
+      "amountSol": "0.000014962000000000"
+    },
+    {
+      "txSignature": "oNCWcrvcUthLkww8Mz7ddENtEmYRstTzNR7sFVmnRCV7fboLU4j5vhJUcPfWgoXnrk4pxzWGDTqQJpEPxmnQapR",
+      "type": "BUY",
+      "createdAt": "2026-04-04T02:07:31.549Z",
+      "amountSol": "0.000274314000000000"
+    },
+    {
+      "txSignature": "3LJrRstYAbCSc9vbHFz2vm2LNE4B4UZPD5ApNZcuzupSSkt93UoYDyViwzSTrN5XdbNftvFqcZAWX3DenwLL2odo",
+      "type": "SELL",
+      "createdAt": "2026-04-04T01:47:42.843Z",
+      "amountSol": "0.001809860000000000"
+    },
+    {
+      "txSignature": "3FrKPDW5okJt9JAComvZAPz3B5WbY4FSjXZSHwysQfTP8Wu7uDWN5v2tHQW1p39ag6zVF9rRNYB1AtZJSfGiNw1q",
+      "type": "BUY",
+      "createdAt": "2026-04-04T01:47:24.811Z",
+      "amountSol": "0.002521100000000000"
+    },
+    {
+      "txSignature": "55DSdkww1MWWeUVD1YW68VUbwjmYAgT5onxjtdaBU1xvNVqUVCgL8teeHfXyKdBu8uzucy9SyNzwBKseH6FzZLyY",
+      "type": "BUY",
+      "createdAt": "2026-04-04T00:55:47.137Z",
+      "amountSol": "0.000015000000000000"
+    },
+    {
+      "txSignature": "c4aBc28rnfQmBTYH1wJhWrYnCTwPDREiK7wfquJtk3vwAHNRsGh41YGFBWoNFpR47wbcaH2cYq7tMY8Mht7q4Su",
+      "type": "SELL",
+      "createdAt": "2026-04-04T00:46:35.467Z",
+      "amountSol": "0.000219060000000000"
+    },
+    {
+      "txSignature": "JrZZFtRsbxdX39YvVtj7jvSyKxXDffpcxBJPYqViv9QxvHZFBf8sBpwhoFxhXemRGSv7fVTmGb63EFiBhMsH7PF",
+      "type": "BUY",
+      "createdAt": "2026-04-03T22:26:37.639Z",
+      "amountSol": "0.000025000000000000"
+    },
+    {
+      "txSignature": "51kMZf2XkVdhqTiBSfkW6CpLR3Gp6fpjGAAzjdpuonWKGBk5bSEvUCJLTcvxKCAHq5dkBuysV4SAtB8B5Qm7JfLY",
+      "type": "BUY",
+      "createdAt": "2026-04-03T22:24:59.993Z",
+      "amountSol": "0.000107010000000000"
+    },
+    {
+      "txSignature": "1VHu8yji14TkpJEZKqgegYJZVFs8S3G5SYKLvuSJyW51pJ9ec7mwqcpgyUbgUEkvqX7YScCo2AFJELa6aASGTzu",
+      "type": "BUY",
+      "createdAt": "2026-04-03T22:24:25.972Z",
+      "amountSol": "0.000149578000000000"
+    },
+    {
+      "txSignature": "HXTLJSUQqWaexuCTBjqqmgQddXgE9Had9yRQc6rAhaj6APTZbSTZZkGaeDaBpemT5aNrbcEwD3gaHvCKiUTWhvP",
+      "type": "BUY",
+      "createdAt": "2026-04-03T22:21:33.493Z",
+      "amountSol": "0.000149484000000000"
+    }
+  ],
+  "meta": {
+    "total": 120,
+    "page": "1",
+    "limit": 100,
+    "totalPages": 2
+  },
+  "retained_fields_note": "Public API response reduced to aggregate-volume inputs; user/profile data omitted."
+}

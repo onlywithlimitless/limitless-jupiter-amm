@@ -1,0 +1,178 @@
+[
+  {
+    "success": true,
+    "data": [
+      {
+        "mintAddress": "Fh6uh5rU5zn63wpc7ngPDXq9MXbz1peQr9fqtmqvbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "J1xtoQhBnsjmxCRULoEMTjpLhyGXHrvuBgKoL1xKbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "qqKKEedViT5MjdqbkBjBsnmomDkkousdywx4Zr5buzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "48HpHJ12GXpjk62a66RAg5Y9AFt3t1q8ieuHNUT3buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "9yAYyBmqX61hZZNgvCnvbq21pZYYMxgiWPEBiSGdbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "56KoQMAGyFqDEieX5RKgj2N88xsXav4YHYibmpHpbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "CGsp8wo3Cvcsp5zPSWdmfhFACefkMiJG8Jyv81Uzbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "ESfTVrFVin4HDwnFJniAharezse7t6oHxcKcfYCzbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "7qJWSkLsdy9fAoKJ6coBoN6MpDTeyhDGSkEw7GVNbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "63oP7xHfmC7jguya2yZKfxmX2cuSMeoucSrBYUP6buzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "2hY1PmxcwReNonnpjSqy3yn6nj9oFgxN3Upvcntbbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "7xsTyE28R4oRAz1T8jJoeTSWUHTBhfkgUoCaZJH3buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "7jS8j71QHctKzaS3Zp224mGa8M4FMp572UBDtH49buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "6A2ef9Wdm9Y9vrUoCKLmnLn7Yk6CHxPtkQksnZxbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JPCs3vMNePX1ZomAXECypaoZwgFLWkNqaGtdbq5buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JGA1YweBGumbmAUkm4aA86FAwrxiPz5a78bHsLGbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JEeu4AKFChxwcGF64b6n2U2cGsDHZyYBV98A8adbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JEb8UwyrnLkdQdDqxKxiyuNnKwqsM2oS1xNEAZpbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JEAucXkHq1K89BPjVm79YXRuYySPsMadm1kh4mJbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "JDaN4qT6WMbuGt7EqQ8UPSDWeDafRuBK4vvo1xZbuzz",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "Hg8TZNjrxmLQyAqix17M82B9hyumub2jAYkpVKWbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "DKd8WS3VJ8yNsUQY6YKyh2WFF6y66VY7KW7z8dmewD1M",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "Eu7vAQ4tx6tCqMqG4jNnkNUGp4WBX7oWLr7t2pkRwFSX",
+        "status": "live",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HZqChdn9KtoN9S5n4qGbFEi7PM43ThYGEVRdJ9wbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HYnJ6cAKwTmYGfBX5yxLHf3dtQ6VijKyabez39ibuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HTZ4TKKizQc6ekiirY8An3JByAQ59Eb94whLn2cbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HMsTa43TxzDFw8NAnU5Uacohgj17K5kyjNdCyqKbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HK61Fdzpx7xD75JpiPb3ChR9sU5yL3Ujz7Hd1d7buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HJ4rWNtPUJLomyTQDcvQLkDTJXwtucx5uaTLJdHbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HEbuXN9qtyBQLdsL7ZHG7XWJ2vjiteMmKYw3AL3buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "HCVV8nXnpgd6Jp8EuzuA59vikUxCY1o7CDC2YR3buzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "H8YkPLVFxBUwmCcQeyChU2vkk2CDBPkEU6xeznVbuzz",
+        "status": "pending_creation",
+        "hidden": false
+      },
+      {
+        "mintAddress": "C75S1CEGznahXZDMhizQfTKQPcETbVj9DkgAk3dxoK94",
+        "status": "live",
+        "hidden": false
+      }
+    ],
+    "meta": {
+      "total": 33,
+      "page": "1",
+      "limit": "100",
+      "totalPages": 1
+    }
+  }
+]

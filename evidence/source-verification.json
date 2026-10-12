@@ -1,0 +1,59 @@
+{
+  "marker_commit": "ecc8f7e65aa70bbb95dbc174036ffa338e9582a0",
+  "actual_source_commit": "4cb811f3251fa421e852d1da62254a8f2e1b2c4d",
+  "deployed_elf_matches_release_receipt": true,
+  "deployed_sha256": "cc10058317ec65cf09f5a021a05c9a1901a5b42be49732c860b54c6c3e8a9b9d",
+  "reference_sources": [
+    {
+      "path": "programs/launchpad_program/src/math.rs",
+      "sha256": "61e33956eada464a30738798b656ecd69acff77c43a8ebd2f665f1a36fbfa948",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/constants.rs",
+      "sha256": "64863654638e6c57fd4cc153039a8a0271c2f04d606917a20ae8582851258f1a",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/state/config.rs",
+      "sha256": "026e1719c1777ea1d843e9ca1b4dc904c39f2c74a7f0dde334f1426c5d0ea6fe",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/state/launched_coin.rs",
+      "sha256": "0857b2c1f0115b71486504653d098a90539839049cf68f73edee298d9d16aadb",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/creator_revenue.rs",
+      "sha256": "171409caa7193d818d17db5ff6fe5df762629f8d32c3a7294fc281a240680541",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/buy.rs",
+      "sha256": "c1f0d98f1618a7bec6dff82d17e24b2a30cd630f88212f4b6a61c36717b5091b",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/sell.rs",
+      "sha256": "411142e84a255b046f7053bcb479d9ea769fa037b08cfd8aa2f5eb0c70102ba9",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/graduation_safety.rs",
+      "sha256": "708f45cf365df0c08d06feb24306b8136ebe9663e6957f92b724b44943d49087",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/graduation_policy.rs",
+      "sha256": "4ac43e568562ff83f8dd9bfc6414ff40192d3238c0321ced77796f86167bf4f1",
+      "matches_live_commit": true
+    },
+    {
+      "path": "programs/launchpad_program/src/instructions/launch_graduation.rs",
+      "sha256": "c69c7507bdf9c6cc97469024e029bd99592a967cc8de78584a1724f915ef883c",
+      "matches_live_commit": true
+    }
+  ],
+  "note": "Actual source binding uses retained reproducible-release receipt plus fresh on-chain byte equality; this task does not rebuild the full launchpad."
+}

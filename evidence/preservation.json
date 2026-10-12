@@ -1,0 +1,384 @@
+{
+  "inventories": {
+    "/home/ubuntu/verify/approved-features.json": "da0008148aad77899befa15e368b7ae183401c3642e976cca0af69b10a90aaf0",
+    "/home/ubuntu/verify/FOUNDER-INVENTORY.md": "bf5df5415b9357b09718d2910f16c1f71d5bc7ec5fe0e4217fcdf395b6695048"
+  },
+  "files": [
+    {
+      "file": "Cargo.toml",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "Cargo.lock",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "APPLICATION.md",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "README.md",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "RESULT.md",
+      "inventory_matches": "/home/ubuntu/verify/FOUNDER-INVENTORY.md:106:The final report is [RESULT.md](/home/ubuntu/AIRTIGHT-AUDIT/founder-inventory-1010/RESULT.md). Every `evidence/...` path below is relative to `/home/ubuntu/AIRTIGHT-AUDIT/founder-inventory-1010`. Approved-work conflicts are recorded in [BLOCKED-APPROVED.md](/home/ubuntu/AIRTIGHT-AUDIT/founder-inventory-1010/BLOCKED-APPROVED.md).\n/home/ubuntu/verify/FOUNDER-INVENTORY.md:441:> RESULT.md line 1: SHIP-LMTLESS: LIVE <sha> or SHIP-LMTLESS: NOT DONE <reason>.\n/home/ubuntu/verify/FOUNDER-INVENTORY.md:452:> Ship to live limitless.buzz via the normal reviewed release (codex-review, route preflight, build.lock, beta-rebuild). Verify in a real browser on LIVE, desktop + iPhone 13, light + dark, collapsed + expanded: screenshot each, and assert the collapsed sidebar has NO element whose text is exactly \"Buy\". Write PROGRESS.json {\"done\":n,\"total\":6,\"step\":\"...\"}. RESULT.md line 1: LIVE <sha> or NOT DONE <reason>.\n/home/ubuntu/verify/FOUNDER-INVENTORY.md:838:> RESULT.md line 1: SHIP-LMTLESS: LIVE <sha> or SHIP-LMTLESS: NOT DONE <reason>.\n/home/ubuntu/verify/approved-features.json:540:     \"founder_quote\": \"You are GPT-6. FOUNDER ORDER 2026-10-09 00:00 (screenshots: /var/lib/telegram-bridge/uploads/1791504035_file_320.jpg, _321.jpg). FIRST wait (poll 60s, no max) until no codex process has --cd /home/ubuntu/AIRTIGHT-AUDIT/ship-main-lmtless-1008; only then touch /home/ubuntu/beta-review. Never hold /var/lib/limitless-bugfix/build.lock while waiting on review (L154). Never reset --hard.\\n\\nThe sidebar Buy button on limitless.buzz currently shows a plain word \\\"Buy\\\" in a circle. He hates it: \\\"that's just fucking weird... i've redesigned this 50000 times\\\". Merge 0d389013e (\\\"preserving the simplified sidebar\\\") threw away his APPROVED design from 3fc90ffd3, 89945f881, c77566777 (Sept 10-11: Buy/Claim LIMITLESS pills with the Wishes multi-colour aura, the real logo next to the text, same structure for both). Restore that intent, upgraded:\\n1. Sidebar COLLAPSED: no \\\"Buy\\\" text. Show the small ROTATING limitless logo with the animated multi-colour aura (not just a flat purple glow). Exciting even when closed.\\n2. Sidebar EXPANDED: a pill reading \\\"buy limitless\\\" (lowercase) with the rotating logo beside it, same Wishes aura. Claim limitless keeps the same structure (c77566777).\\n3. Click opens the live /lmtless buy page. Make that page more exciting too (rotating logo top centre, his 10-08 13:20 order: \\\"super exciting, ra ra\\\").\\n4. Light AND dark mode must both look deliberate. Respect prefers-reduced-motion. 60fps, no layout shift.\\nShip to live limitless.buzz via the normal reviewed release (codex-review, route preflight, build.lock, beta-rebuild). Verify in a real browser on LIVE, desktop + iPhone 13, light + dark, collapsed + expanded: screenshot each, and assert the collapsed sidebar has NO element whose text is exactly \\\"Buy\\\". Write PROGRESS.json {\\\"done\\\":n,\\\"total\\\":6,\\\"step\\\":\\\"...\\\"}. RESULT.md line 1: LIVE <sha> or NOT DONE <reason>.\",\n/home/ubuntu/verify/approved-features.json:588:     \"founder_quote\": \"You are GPT-6. FOUNDER ORDER 16:03: build straight onto the MAIN site (limitless.buzz = /home/ubuntu/beta-review, mainnet). No devnet, no previews.\\n1. Wait until no codex process has --cd /home/ubuntu/AIRTIGHT-AUDIT/lmtless-buy-page-1008 AND none has --cd /home/ubuntu/AIRTIGHT-AUDIT/ship-main-1008 (poll 60s, max 4h).\\n2. Take the finished $LMTLESS page + buy popup work from /home/ubuntu/AIRTIGHT-AUDIT/lmtless-buy-page-1008 (its worktree/branch, see its RESULT/run-gpt.log), merge into /home/ubuntu/beta-review on top of current HEAD. Never reset --hard. Keep sidebar commit ae4b4fcd3 and every other merged fix.\\n3. codex-review the range (exit 0), deploy-route-preflight /tokens /tokens/launch /lmtless, take build.lock, beta-rebuild HEAD.\\n4. Verify on LIVE https://limitless.buzz in a real browser, desktop + iPhone 13: /lmtless renders with the rotating logo and a working Jupiter quote for LMTLESSmmQrL2pSLUD6qjckwf5gFAePYAoCL2evhD1h; sidebar Buy opens it; launch gate node /home/ubuntu/verify/launch-single-button-pill.cjs exits 0; node /home/ubuntu/verify/live-no-devnet-labels.cjs all false. No real-money swaps.\\nRESULT.md line 1: SHIP-LMTLESS: LIVE <sha> or SHIP-LMTLESS: NOT DONE <reason>.\",\n/home/ubuntu/verify/approved-features.json:1889:     \"founder_quote\": \"You are GPT-6. FOUNDER ORDER 16:03: build straight onto the MAIN site (limitless.buzz = /home/ubuntu/beta-review, mainnet). No devnet, no previews.\\n1. Wait until no codex process has --cd /home/ubuntu/AIRTIGHT-AUDIT/lmtless-buy-page-1008 AND none has --cd /home/ubuntu/AIRTIGHT-AUDIT/ship-main-1008 (poll 60s, max 4h).\\n2. Take the finished $LMTLESS page + buy popup work from /home/ubuntu/AIRTIGHT-AUDIT/lmtless-buy-page-1008 (its worktree/branch, see its RESULT/run-gpt.log), merge into /home/ubuntu/beta-review on top of current HEAD. Never reset --hard. Keep sidebar commit ae4b4fcd3 and every other merged fix.\\n3",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "rust-toolchain.toml",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": ".gitignore",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "TEST-KIT-ISSUE-DRAFT.md",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "requirements.txt",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "idl/launchpad_program.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/provenance.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/math.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/constants.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/adapter.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/parity.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/wsol_blocker.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/edge_cases.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "scripts/snapshot.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "scripts/traction.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "scripts/inspect_form.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "scripts/capture_dependencies.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "scripts/extract_admission.py",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "src/state.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "src/math.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "src/lib.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "src/admission.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/traction.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/wsol-blocker.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/dependencies.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/verification-summary.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/wsol-blocker.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/cargo-test.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/marker-to-live.diff",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/token-pages.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/source-verification.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/cargo-build.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/live-source-archive-check.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/transactions-page1.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/traction.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/edge-cases.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/cargo-check.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/cpi-build.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/cargo-fetch.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/approved-gate.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/clippy.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/platform-stats.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/artifact-sha256.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/snapshot.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/parity.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/edge-cases.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/form-fields.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/parity.log",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/mainnet-pools.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "evidence/live-release-receipt.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/state/config.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/state/launched_coin.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/creator_revenue.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/buy.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/sell.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/graduation_safety.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/graduation_policy.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "reference/instructions/launch_graduation.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/wsol-mint.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/limitless.so",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/cpi_relay.so",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/spl_token_2022.so",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/spl_associated_token_account.so",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/fixtures/GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx.json",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/cpi-relay/Cargo.toml",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/cpi-relay/Cargo.lock",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "tests/cpi-relay/src/lib.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    },
+    {
+      "file": "src/bin/quote.rs",
+      "inventory_matches": "",
+      "scope": "New standalone file; no existing protected item edited"
+    }
+  ],
+  "scope": "Only new standalone files and job reports. Existing production UI, copy, sounds and flows unchanged."
+}

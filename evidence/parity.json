@@ -1,0 +1,694 @@
+{
+  "result": "PASS",
+  "scope": "Real mainnet snapshots, deployed ELF; synthetic users only; native SOL deltas (not WSOL routing)",
+  "cases": [
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": true,
+      "in": 1000,
+      "out": 35284803,
+      "fee": 12,
+      "compute_units": 122942,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 352848,
+      "out": 9,
+      "fee": 0,
+      "compute_units": 115312,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 3528480,
+      "out": 97,
+      "fee": 1,
+      "compute_units": 115755,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 17642401,
+      "out": 487,
+      "fee": 6,
+      "compute_units": 116188,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": true,
+      "in": 1000000,
+      "out": 35265788441,
+      "fee": 12500,
+      "compute_units": 122937,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 352657884,
+      "out": 9752,
+      "fee": 123,
+      "compute_units": 116182,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 3526578844,
+      "out": 97518,
+      "fee": 1234,
+      "compute_units": 116182,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 17632894220,
+      "out": 487587,
+      "fee": 6171,
+      "compute_units": 116181,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": true,
+      "in": 100000000,
+      "out": 3515132820059,
+      "fee": 1250000,
+      "compute_units": 122944,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 35151328200,
+      "out": 978332,
+      "fee": 12383,
+      "compute_units": 116189,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 351513282005,
+      "out": 9780421,
+      "fee": 123802,
+      "compute_units": 116189,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 1757566410029,
+      "out": 48837869,
+      "fee": 618200,
+      "compute_units": 116188,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": true,
+      "in": 1000000000,
+      "out": 34143883340510,
+      "fee": 12500000,
+      "compute_units": 123627,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 341438833405,
+      "out": 10069000,
+      "fee": 127455,
+      "compute_units": 116872,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 3414388334051,
+      "out": 100392908,
+      "fee": 1270796,
+      "compute_units": 116872,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 17071941670255,
+      "out": 495467124,
+      "fee": 6271735,
+      "compute_units": 116872,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "completion": true,
+      "buy": true,
+      "in": 86053287362,
+      "out": 792287140580726,
+      "fee": 1075666092,
+      "compute_units": 123012,
+      "cpi": false
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": true,
+      "in": 100000000,
+      "out": 3515132820059,
+      "fee": 1250000,
+      "compute_units": 128135,
+      "cpi": true
+    },
+    {
+      "pool": "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+      "buy": false,
+      "in": 1757566410029,
+      "out": 48837869,
+      "fee": 618200,
+      "compute_units": 121379,
+      "cpi": true
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": true,
+      "in": 1000,
+      "out": 35256275,
+      "fee": 12,
+      "compute_units": 127441,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 352562,
+      "out": 9,
+      "fee": 0,
+      "compute_units": 119810,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 3525627,
+      "out": 97,
+      "fee": 1,
+      "compute_units": 120253,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 17628137,
+      "out": 487,
+      "fee": 6,
+      "compute_units": 120687,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": true,
+      "in": 1000000,
+      "out": 35237276317,
+      "fee": 12500,
+      "compute_units": 127436,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 352372763,
+      "out": 9752,
+      "fee": 123,
+      "compute_units": 120681,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 3523727631,
+      "out": 97518,
+      "fee": 1234,
+      "compute_units": 120681,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 17618638158,
+      "out": 487587,
+      "fee": 6171,
+      "compute_units": 120685,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": true,
+      "in": 100000000,
+      "out": 3512295470843,
+      "fee": 1250000,
+      "compute_units": 127443,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 35122954708,
+      "out": 978331,
+      "fee": 12383,
+      "compute_units": 120588,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 351229547084,
+      "out": 9780409,
+      "fee": 123802,
+      "compute_units": 120689,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 1756147735421,
+      "out": 48837836,
+      "fee": 618200,
+      "compute_units": 120689,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": true,
+      "in": 1000000000,
+      "out": 34116717098727,
+      "fee": 12500000,
+      "compute_units": 128126,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 341167170987,
+      "out": 10068872,
+      "fee": 127454,
+      "compute_units": 121270,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 3411671709872,
+      "out": 100391749,
+      "fee": 1270781,
+      "compute_units": 121270,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 17058358549363,
+      "out": 495463985,
+      "fee": 6271696,
+      "compute_units": 121372,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "completion": true,
+      "buy": true,
+      "in": 86040989643,
+      "out": 791853612933712,
+      "fee": 1075512370,
+      "compute_units": 127511,
+      "cpi": false
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": true,
+      "in": 100000000,
+      "out": 3512295470843,
+      "fee": 1250000,
+      "compute_units": 132634,
+      "cpi": true
+    },
+    {
+      "pool": "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+      "buy": false,
+      "in": 1756147735421,
+      "out": 48837836,
+      "fee": 618200,
+      "compute_units": 125880,
+      "cpi": true
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": true,
+      "in": 1000,
+      "out": 35316379,
+      "fee": 12,
+      "compute_units": 132036,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 353163,
+      "out": 9,
+      "fee": 0,
+      "compute_units": 124303,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 3531637,
+      "out": 97,
+      "fee": 1,
+      "compute_units": 124750,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 17658189,
+      "out": 487,
+      "fee": 6,
+      "compute_units": 125181,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": true,
+      "in": 1000000,
+      "out": 35297346831,
+      "fee": 12500,
+      "compute_units": 132036,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 352973468,
+      "out": 9752,
+      "fee": 123,
+      "compute_units": 125081,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 3529734683,
+      "out": 97518,
+      "fee": 1234,
+      "compute_units": 125184,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 17648673415,
+      "out": 487587,
+      "fee": 6171,
+      "compute_units": 125080,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": true,
+      "in": 100000000,
+      "out": 3518273308265,
+      "fee": 1250000,
+      "compute_units": 132043,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 35182733082,
+      "out": 978333,
+      "fee": 12383,
+      "compute_units": 125187,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 351827330826,
+      "out": 9780434,
+      "fee": 123802,
+      "compute_units": 125088,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 1759136654132,
+      "out": 48837904,
+      "fee": 618201,
+      "compute_units": 125087,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": true,
+      "in": 1000000000,
+      "out": 34173951445611,
+      "fee": 12500000,
+      "compute_units": 132043,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 341739514456,
+      "out": 10069142,
+      "fee": 127457,
+      "compute_units": 125189,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 3417395144561,
+      "out": 100394191,
+      "fee": 1270812,
+      "compute_units": 125189,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 17086975722805,
+      "out": 495470596,
+      "fee": 6271779,
+      "compute_units": 125088,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "completion": true,
+      "buy": true,
+      "in": 86066881605,
+      "out": 792766782510938,
+      "fee": 1075836020,
+      "compute_units": 132111,
+      "cpi": false
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": true,
+      "in": 100000000,
+      "out": 3518273308265,
+      "fee": 1250000,
+      "compute_units": 137234,
+      "cpi": true
+    },
+    {
+      "pool": "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf",
+      "buy": false,
+      "in": 1759136654132,
+      "out": 48837904,
+      "fee": 618201,
+      "compute_units": 130278,
+      "cpi": true
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": true,
+      "in": 1000,
+      "out": 35317445,
+      "fee": 12,
+      "compute_units": 66780,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 353174,
+      "out": 9,
+      "fee": 0,
+      "compute_units": 55786,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 3531744,
+      "out": 97,
+      "fee": 1,
+      "compute_units": 56230,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 17658722,
+      "out": 487,
+      "fee": 6,
+      "compute_units": 56662,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": true,
+      "in": 1000000,
+      "out": 35298411914,
+      "fee": 12500,
+      "compute_units": 66780,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 352984119,
+      "out": 9752,
+      "fee": 123,
+      "compute_units": 56663,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 3529841191,
+      "out": 97518,
+      "fee": 1234,
+      "compute_units": 56661,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 17649205957,
+      "out": 487587,
+      "fee": 6171,
+      "compute_units": 56662,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": true,
+      "in": 100000000,
+      "out": 3518379830710,
+      "fee": 1250000,
+      "compute_units": 66787,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 35183798307,
+      "out": 978333,
+      "fee": 12383,
+      "compute_units": 56664,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 351837983071,
+      "out": 9780433,
+      "fee": 123802,
+      "compute_units": 56663,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 1759189915355,
+      "out": 48837901,
+      "fee": 618201,
+      "compute_units": 56662,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": true,
+      "in": 1000000000,
+      "out": 34175016901393,
+      "fee": 12500000,
+      "compute_units": 68120,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 341750169013,
+      "out": 10069132,
+      "fee": 127457,
+      "compute_units": 56661,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 3417501690139,
+      "out": 100394100,
+      "fee": 1270811,
+      "compute_units": 56661,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 17087508450696,
+      "out": 495470351,
+      "fee": 6271776,
+      "compute_units": 56661,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "completion": true,
+      "buy": true,
+      "in": 86040607594,
+      "out": 792745993822038,
+      "fee": 1075507594,
+      "compute_units": 64405,
+      "cpi": false
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": true,
+      "in": 100000000,
+      "out": 3518379830710,
+      "fee": 1250000,
+      "compute_units": 71978,
+      "cpi": true
+    },
+    {
+      "pool": "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+      "buy": false,
+      "in": 1759189915355,
+      "out": 48837901,
+      "fee": 618201,
+      "compute_units": 61853,
+      "cpi": true
+    }
+  ]
+}

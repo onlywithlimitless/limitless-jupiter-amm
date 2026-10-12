@@ -1,0 +1,775 @@
+diff --git a/programs/launchpad_program/Cargo.toml b/programs/launchpad_program/Cargo.toml
+index 945b748..2125933 100644
+--- a/programs/launchpad_program/Cargo.toml
++++ b/programs/launchpad_program/Cargo.toml
+@@ -14,6 +14,8 @@ no-idl = []
+ no-log-ix-name = []
+ cpi = ["no-entrypoint"]
+ default = []
++# Recovery executable: settle existing locks, disable new feature admission.
++recovery = []
+ # Cluster selector — default (no feature) = mainnet `declare_id!`.
+ # Build with `--features devnet` to swap in the devnet program ID.
+ #
+diff --git a/programs/launchpad_program/src/errors.rs b/programs/launchpad_program/src/errors.rs
+index 9d4b8db..beb35e1 100644
+--- a/programs/launchpad_program/src/errors.rs
++++ b/programs/launchpad_program/src/errors.rs
+@@ -201,4 +201,8 @@ pub enum LaunchpadError {
+     CurveComplete,
+     #[msg("Meteora preparation is protected until its fixed cleanup slot delay has elapsed")]
+     MeteoraPreparationTooRecent,
++    #[msg("Invalid creator revenue shareholder list or custody accounts")]
++    InvalidRevenueShares,
++    #[msg("Creator revenue is locked to its immutable shareholder list")]
++    CreatorRevenueLocked,
+ }
+diff --git a/programs/launchpad_program/src/instructions/buy.rs b/programs/launchpad_program/src/instructions/buy.rs
+index b25af7f..ebbde27 100644
+--- a/programs/launchpad_program/src/instructions/buy.rs
++++ b/programs/launchpad_program/src/instructions/buy.rs
+@@ -191,9 +191,14 @@ pub(crate) fn handler<'info>(
+     // Recipient ownership and rent coverage can change after launch.
+     // Keep each entitlement recoverable without blocking holder trades.
+     let rent = Rent::get()?;
++    let creator_credit_key = if launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] == 0 {
++        ctx.accounts.creator_fee_recipient.key()
++    } else {
++        Pubkey::find_program_address(&[super::creator_revenue::REVENUE_SEED, ctx.accounts.mint.key().as_ref()], &crate::ID).0
++    };
+     let recipient_credits = [
+         (ctx.accounts.treasury.key(), platform_fee),
+-        (ctx.accounts.creator_fee_recipient.key(), creator_fee),
++        (creator_credit_key, creator_fee),
+         (ctx.accounts.charity_wallet.key(), charity_fee),
+     ];
+     let treasury_destination = trade_fee_destination(
+@@ -203,13 +208,18 @@ pub(crate) fn handler<'info>(
+         &rent,
+         ctx.remaining_accounts,
+     )?;
+-    let creator_destination = trade_fee_destination(
++    let creator_destination = if launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] != 0 {
++        super::creator_revenue::destination(launched_coin,
++            ctx.accounts.creator_fee_recipient.to_account_info(), ctx.remaining_accounts)?
++    } else {
++        trade_fee_destination(
+         ctx.accounts.mint.key(),
+         ctx.accounts.creator_fee_recipient.to_account_info(),
+         total_credit(ctx.accounts.creator_fee_recipient.key(), &recipient_credits),
+         &rent,
+         ctx.remaining_accounts,
+-    )?;
++        )?
++    };
+     let charity_destination = if launched_coin.charity_bps > 0 {
+         trade_fee_destination(
+             ctx.accounts.mint.key(),
+diff --git a/programs/launchpad_program/src/instructions/claim_meteora_fees.rs b/programs/launchpad_program/src/instructions/claim_meteora_fees.rs
+index 9372a94..d15de21 100644
+--- a/programs/launchpad_program/src/instructions/claim_meteora_fees.rs
++++ b/programs/launchpad_program/src/instructions/claim_meteora_fees.rs
+@@ -71,6 +71,9 @@ pub struct ClaimMeteoraFees<'info> {
+ 
+ pub(crate) fn handler(ctx: Context<ClaimMeteoraFees>, _partner: bool) -> Result<()> {
+     let a = ctx.accounts;
++    require!(_partner || a.launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] == 0,
++        LaunchpadError::CreatorRevenueLocked);
++
+     super::graduate_meteora::validate_token_beneficiary(a.recipient.key())?;
+     let mint = a.mint.key();
+     let bump = [a.launched_coin.bump];
+diff --git a/programs/launchpad_program/src/instructions/claim_shared_meteora_fees.rs b/programs/launchpad_program/src/instructions/claim_shared_meteora_fees.rs
+new file mode 100644
+index 0000000..a3e88e0
+--- /dev/null
++++ b/programs/launchpad_program/src/instructions/claim_shared_meteora_fees.rs
+@@ -0,0 +1,134 @@
++//! Claim actual creator-position LP fees into locked shareholder custody.
++use super::graduate_meteora::{METEORA_GRADUATION_SEED, POSITION_MINT_SEED};
++use crate::{
++    constants::*,
++    errors::LaunchpadError,
++    meteora_cpi as damm,
++    state::{LaunchedCoin, MeteoraGraduation},
++};
++use anchor_lang::prelude::*;
++use anchor_spl::token::Token;
++use anchor_spl::token_2022::Token2022;
++use anchor_spl::token_interface::{Mint, TokenAccount};
++
++#[derive(Accounts)]
++pub struct ClaimSharedMeteoraFees<'info> {
++    /// CHECK: the immutable receipt binds this destination. A signature is
++    /// optional and only permits withdrawing positive amounts below the minimum.
++    #[account(address = graduation.creator_fee_recipient
++        @ LaunchpadError::Unauthorized)]
++    pub recipient: UncheckedAccount<'info>,
++    #[account(seeds = [METEORA_GRADUATION_SEED, mint.key().as_ref()],
++        bump = graduation.bump, has_one = mint, has_one = pool)]
++    pub graduation: Box<Account<'info, MeteoraGraduation>>,
++    #[account(seeds = [LAUNCHED_COIN_SEED, mint.key().as_ref()],
++        bump = launched_coin.bump, has_one = mint)]
++    pub launched_coin: Box<Account<'info, LaunchedCoin>>,
++    #[account(owner = token_2022_program.key())]
++    pub mint: Box<InterfaceAccount<'info, Mint>>,
++    #[account(address = WSOL_MINT, owner = token_program.key())]
++    pub wsol_mint: Box<InterfaceAccount<'info, Mint>>,
++    /// CHECK: receipt binds pool; DAMM verifies its layout and vaults.
++    #[account(mut, owner = damm::ID)]
++    pub pool: UncheckedAccount<'info>,
++    /// CHECK: position pinned to immutable graduation receipt.
++    #[account(mut, owner = damm::ID, address = graduation.creator_position)]
++    pub position: UncheckedAccount<'info>,
++    /// CHECK: only this program can create the canonical role mint.
++    #[account(seeds = [POSITION_MINT_SEED, mint.key().as_ref(), b"creator"], bump)]
++    pub position_mint: UncheckedAccount<'info>,
++    #[account(seeds = [b"position_nft_account", position_mint.key().as_ref()],
++        bump, seeds::program = damm::ID,
++        token::mint = position_mint, token::authority = launched_coin,
++        token::token_program = token_2022_program,
++        constraint = position_nft_account.amount == 1 && position_nft_account.delegate.is_none())]
++    pub position_nft_account: Box<InterfaceAccount<'info, TokenAccount>>,
++    #[account(mut, associated_token::mint = mint, associated_token::authority = revenue,
++        associated_token::token_program = token_2022_program)]
++    pub token_a_account: Box<InterfaceAccount<'info, TokenAccount>>,
++    #[account(mut, associated_token::mint = wsol_mint, associated_token::authority = revenue,
++        associated_token::token_program = token_program)]
++    pub token_b_account: Box<InterfaceAccount<'info, TokenAccount>>,
++    /// CHECK: canonical DAMM vault, checked again by its claim instruction.
++    #[account(mut, seeds = [b"token_vault", mint.key().as_ref(), pool.key().as_ref()], bump, seeds::program = damm::ID)]
++    pub token_a_vault: UncheckedAccount<'info>,
++    /// CHECK: canonical DAMM vault.
++    #[account(mut, seeds = [b"token_vault", WSOL_MINT.as_ref(), pool.key().as_ref()], bump, seeds::program = damm::ID)]
++    pub token_b_vault: UncheckedAccount<'info>,
++    /// CHECK: canonical DAMM authority.
++    #[account(seeds = [b"pool_authority"], bump, seeds::program = damm::ID)]
++    pub pool_authority: UncheckedAccount<'info>,
++    /// CHECK: canonical DAMM event authority.
++    #[account(seeds = [b"__event_authority"], bump, seeds::program = damm::ID)]
++    pub event_authority: UncheckedAccount<'info>,
++    /// CHECK: exact executable DAMM program.
++    #[account(address = damm::ID, executable)]
++    pub meteora_program: UncheckedAccount<'info>,
++    #[account(seeds = [super::creator_revenue::REVENUE_SEED, mint.key().as_ref()], bump = revenue.bump,
++        has_one = mint, constraint = revenue.authority == graduation.creator_fee_recipient @ LaunchpadError::Unauthorized)]
++    pub revenue: Box<Account<'info, super::creator_revenue::CreatorRevenue>>,
++    pub token_program: Program<'info, Token>,
++    pub token_2022_program: Program<'info, Token2022>,
++}
++
++pub(crate) fn handler(ctx: Context<ClaimSharedMeteoraFees>) -> Result<()> {
++    let a = ctx.accounts;
++    require!(a.launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] == 1,
++        LaunchpadError::CreatorRevenueLocked);
++
++    super::graduate_meteora::validate_token_beneficiary(a.recipient.key())?;
++    let mint = a.mint.key();
++    let bump = [a.launched_coin.bump];
++    let seeds: &[&[u8]] = &[LAUNCHED_COIN_SEED, mint.as_ref(), &bump];
++    let before_a = a.token_a_account.amount;
++    let before_b = a.token_b_account.amount;
++    damm::ClaimPositionFee {
++        pool_authority: a.pool_authority.to_account_info(),
++        pool: a.pool.to_account_info(),
++        position: a.position.to_account_info(),
++        token_a_account: a.token_a_account.to_account_info(),
++        token_b_account: a.token_b_account.to_account_info(),
++        token_a_vault: a.token_a_vault.to_account_info(),
++        token_b_vault: a.token_b_vault.to_account_info(),
++        token_a_mint: a.mint.to_account_info(),
++        token_b_mint: a.wsol_mint.to_account_info(),
++        position_nft_account: a.position_nft_account.to_account_info(),
++        signer: a.launched_coin.to_account_info(),
++        token_a_program: a.token_2022_program.to_account_info(),
++        token_b_program: a.token_program.to_account_info(),
++        event_authority: a.event_authority.to_account_info(),
++        program: a.meteora_program.to_account_info(),
++    }
++    .invoke(&[seeds])?;
++    a.token_a_account.reload()?;
++    a.token_b_account.reload()?;
++    let delta_a = a
++        .token_a_account
++        .amount
++        .checked_sub(before_a)
++        .ok_or(LaunchpadError::AmountOverflow)?;
++    let delta_b = a
++        .token_b_account
++        .amount
++        .checked_sub(before_b)
++        .ok_or(LaunchpadError::AmountOverflow)?;
++    // Check actual token credits, not wallet lamports or pre-CPI pending fees.
++    // Returning an error rolls back the CPI, including rounded checkpoints and
++    // any ATA creations earlier in this transaction. Never close/unwrap here.
++    validate_payout(delta_a, delta_b, a.recipient.is_signer)
++}
++
++fn validate_payout(delta_a: u64, delta_b: u64, recipient_signed: bool) -> Result<()> {
++    require!(
++        delta_a > 0 || delta_b > 0,
++        LaunchpadError::MeteoraZeroPayout
++    );
++    // OnlyB pools pay exclusively in wSOL. Also require this quote-denominated
++    // floor for other modes: arbitrary units of token A cannot bypass it.
++    require!(
++        recipient_signed || delta_b >= MIN_PERMISSIONLESS_METEORA_CLAIM_LAMPORTS,
++        LaunchpadError::MeteoraClaimBelowMinimum
++    );
++    Ok(())
++}
++
+diff --git a/programs/launchpad_program/src/instructions/create_or_buy_pda.rs b/programs/launchpad_program/src/instructions/create_or_buy_pda.rs
+new file mode 100644
+index 0000000..b48af09
+--- /dev/null
++++ b/programs/launchpad_program/src/instructions/create_or_buy_pda.rs
+@@ -0,0 +1,158 @@
++//! Additive PDA adapter: execute the unchanged live create/buy instructions.
++//! No existing account layout, fee rule, or legacy instruction is replaced.
++//! The mint commits to all launch parameters except the buyer's amount/slippage.
++//! This prevents another first buyer from substituting metadata or fee recipients.
++use anchor_lang::prelude::*;
++use anchor_lang::{InstructionData, solana_program::{hash::hash, instruction::{AccountMeta, Instruction}, program::invoke_signed}};
++use super::{CreateAndFirstBuyParams, BuyParams};
++
++#[derive(Accounts)]
++pub struct CreateOrBuyPda<'info> {
++    #[account(mut)]
++    pub buyer: Signer<'info>,
++    /// CHECK: attribution follows the unchanged live handler; not proof of consent.
++    pub creator: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    pub config: UncheckedAccount<'info>,
++    /// CHECK: exact terms-bound PDA is validated before either inner instruction.
++    #[account(mut)]
++    pub mint: UncheckedAccount<'info>,
++    /// CHECK: validated and initialized by the unchanged inner instruction.
++    #[account(mut)]
++    pub launched_coin: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub vault_token_account: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    pub genie_alloc_vault_authority: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub genie_alloc_vault_token_account: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub buyer_token_account: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub treasury: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub creator_fee_recipient: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub rewards_pool: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    #[account(mut)]
++    pub charity_wallet: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    pub token_program: UncheckedAccount<'info>,
++    /// CHECK: validated by the unchanged inner instruction.
++    pub associated_token_program: UncheckedAccount<'info>,
++    pub system_program: Program<'info, System>,
++    pub rent: Sysvar<'info, Rent>,
++    /// CHECK: self-CPI executable, fixed to this program.
++    #[account(address = crate::ID, executable)]
++    pub launchpad_program: UncheckedAccount<'info>,
++}
++
++/// Extra terms for a NEW paid PDA address. Existing PDA and keypair entrypoints
++/// retain their exact wire and semantics. The fee is paid only by the creating
++/// buyer, atomically with mint creation and purchase; racing normal buys do not
++/// pay it again. A caller cannot omit it while retaining the reserved address.
++#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug)]
++pub struct PdaVanityFee {
++    pub recipient: Pubkey,
++    pub lamports: u64,
++}
++
++pub(crate) fn handler<'info>(ctx: Context<'_, '_, '_, 'info, CreateOrBuyPda<'info>>, params: CreateAndFirstBuyParams, nonce: u64) -> Result<()> {
++    handler_internal(ctx, params, nonce, None)
++}
++
++pub(crate) fn handler_with_vanity_fee<'info>(ctx: Context<'_, '_, '_, 'info, CreateOrBuyPda<'info>>, params: CreateAndFirstBuyParams, nonce: u64, fee: PdaVanityFee) -> Result<()> {
++    require!(fee.lamports > 0, anchor_lang::error::ErrorCode::ConstraintRaw);
++    handler_internal(ctx, params, nonce, Some(fee))
++}
++
++fn handler_internal<'info>(ctx: Context<'_, '_, '_, 'info, CreateOrBuyPda<'info>>, params: CreateAndFirstBuyParams, nonce: u64, fee: Option<PdaVanityFee>) -> Result<()> {
++    let mut terms = params.clone();
++    terms.first_buy_sol_amount = 0;
++    terms.first_buy_min_tokens_out = 0;
++    let mut committed = terms.try_to_vec()?;
++    if let Some(ref fee) = fee {
++        committed.extend_from_slice(b"paid-vanity-v1");
++        committed.extend_from_slice(&fee.try_to_vec()?);
++    }
++    let digest = hash(&committed);
++    let creator = ctx.accounts.creator.key();
++    let nonce_bytes = nonce.to_le_bytes();
++    let seeds = [b"mint".as_ref(), creator.as_ref(), nonce_bytes.as_ref(), digest.as_ref()];
++    let (mint, bump) = Pubkey::find_program_address(&seeds, &crate::ID);
++    require_keys_eq!(ctx.accounts.mint.key(), mint, anchor_lang::error::ErrorCode::ConstraintSeeds);
++    let mut infos = ctx.accounts.to_account_infos();
++    infos.extend_from_slice(ctx.remaining_accounts);
++    // Existing coin accounts serialize conflicting first buys on the runtime's
++    // write lock. Only the winner creates; a later execution uses ordinary buy.
++    // Invalid/partial state is rejected by the existing account constraints.
++    let creating = ctx.accounts.launched_coin.data_is_empty();
++    let (indices, data): (Vec<usize>, Vec<u8>) = if creating {
++        ((0..17).collect(), crate::instruction::CreateAndFirstBuy { params }.data())
++    } else {
++        (vec![0, 2, 4, 3, 5, 8, 9, 10, 11, 12, 13, 14, 15],
++         crate::instruction::Buy { params: BuyParams { sol_in: params.first_buy_sol_amount, min_tokens_out: params.first_buy_min_tokens_out } }.data())
++    };
++    let bump_bytes = [bump];
++    let signer = [b"mint".as_ref(), creator.as_ref(), nonce_bytes.as_ref(), digest.as_ref(), bump_bytes.as_ref()];
++    if creating && ctx.accounts.mint.lamports() > 0 {
++        // A public PDA can receive unsolicited SOL before first buy. Return
++        // that donation to the rent payer so the unchanged create_account CPI
++        // can allocate it; never sweep an allocated or foreign-owned account.
++        require_keys_eq!(*ctx.accounts.mint.owner, anchor_lang::system_program::ID, anchor_lang::error::ErrorCode::ConstraintOwner);
++        require!(ctx.accounts.mint.data_is_empty(), anchor_lang::error::ErrorCode::ConstraintZero);
++        anchor_lang::system_program::transfer(
++            CpiContext::new_with_signer(ctx.accounts.system_program.to_account_info(),
++                anchor_lang::system_program::Transfer { from: ctx.accounts.mint.to_account_info(), to: ctx.accounts.buyer.to_account_info() }, &[&signer]),
++            ctx.accounts.mint.lamports(),
++        )?;
++    }
++    let mut accounts: Vec<AccountMeta> = indices.iter().map(|&i| {
++        let a = &infos[i];
++        AccountMeta { pubkey: *a.key, is_writable: a.is_writable,
++            is_signer: a.is_signer || (creating && i == 3) }
++    }).collect();
++    accounts.extend(ctx.remaining_accounts.iter().map(|a| AccountMeta { pubkey: *a.key, is_writable: a.is_writable, is_signer: a.is_signer }));
++    let ix = Instruction { program_id: crate::ID, accounts, data };
++    invoke_signed(&ix, &infos, &[&signer])?;
++    if creating {
++        if let Some(fee) = fee {
++            let recipient = ctx.remaining_accounts.iter().find(|a| a.key() == fee.recipient)
++                .ok_or(anchor_lang::error::ErrorCode::AccountNotEnoughKeys)?;
++            require!(recipient.is_writable, anchor_lang::error::ErrorCode::ConstraintMut);
++            require_keys_eq!(*recipient.owner, anchor_lang::system_program::ID, anchor_lang::error::ErrorCode::ConstraintOwner);
++            require!(recipient.data_is_empty(), anchor_lang::error::ErrorCode::ConstraintZero);
++            anchor_lang::system_program::transfer(
++                CpiContext::new(ctx.accounts.system_program.to_account_info(), anchor_lang::system_program::Transfer {
++                    from: ctx.accounts.buyer.to_account_info(), to: recipient.clone(),
++                }), fee.lamports,
++            )?;
++        }
++    }
++    Ok(())
++}
++
++#[cfg(test)]
++mod paid_terms_tests {
++    use super::*;
++    #[test]
++    fn paid_commitment_cannot_be_substituted_or_confused_with_unpaid_terms() {
++        let terms = b"canonical serialized launch terms";
++        let fee = PdaVanityFee { recipient: Pubkey::new_unique(), lamports: 50_000_000 };
++        let commit = |fee: &PdaVanityFee| {
++            let mut bytes = terms.to_vec(); bytes.extend_from_slice(b"paid-vanity-v1");
++            bytes.extend_from_slice(&fee.try_to_vec().unwrap()); hash(&bytes)
++        };
++        assert_ne!(commit(&fee), hash(terms));
++        assert_ne!(commit(&fee), commit(&PdaVanityFee { recipient: Pubkey::new_unique(), ..fee.clone() }));
++        assert_ne!(commit(&fee), commit(&PdaVanityFee { lamports: fee.lamports - 1, ..fee.clone() }));
++        assert_eq!(fee.try_to_vec().unwrap().len(), 40);
++    }
++}
+diff --git a/programs/launchpad_program/src/instructions/creator_pull.rs b/programs/launchpad_program/src/instructions/creator_pull.rs
+new file mode 100644
+index 0000000..c1efda4
+--- /dev/null
++++ b/programs/launchpad_program/src/instructions/creator_pull.rs
+@@ -0,0 +1,68 @@
++//! Each recipient chooses the timing of their own asset payout. Gross debts
++//! stay in custody, isolated from subsequent deposits and other recipients.
++use anchor_lang::prelude::*;
++use anchor_spl::token_interface::{self, Mint, TokenAccount, TokenInterface, TransferChecked};
++use crate::errors::LaunchpadError;
++use super::creator_revenue::{CreatorRevenue, REVENUE_SEED};
++
++#[account]
++#[derive(Default)]
++pub struct RevenuePullLedger { pub owed: [u64; 10] }
++
++#[derive(Accounts)]
++pub struct ClaimCreatorAsset<'info> {
++    #[account(mut)] pub recipient: Signer<'info>,
++    #[account(mut, seeds = [REVENUE_SEED, revenue.mint.as_ref()], bump = revenue.bump)]
++    pub revenue: Box<Account<'info, CreatorRevenue>>,
++    #[account(mint::token_program = token_program,
++        constraint = asset_mint.key() == revenue.mint || asset_mint.key() == crate::constants::WSOL_MINT @ LaunchpadError::InvalidRevenueShares)]
++    pub asset_mint: Box<InterfaceAccount<'info, Mint>>,
++    #[account(init_if_needed, payer = recipient, space = 88,
++        seeds = [b"revenue_pull", revenue.mint.as_ref(), asset_mint.key().as_ref()], bump)]
++    pub ledger: Box<Account<'info, RevenuePullLedger>>,
++    #[account(mut, associated_token::mint = asset_mint, associated_token::authority = revenue,
++        associated_token::token_program = token_program)]
++    pub custody: Box<InterfaceAccount<'info, TokenAccount>>,
++    #[account(mut, token::mint = asset_mint, token::authority = recipient,
++        token::token_program = token_program)]
++    pub destination: Box<InterfaceAccount<'info, TokenAccount>>,
++    pub token_program: Interface<'info, TokenInterface>,
++    pub system_program: Program<'info, System>,
++}
++
++pub fn claim(ctx: Context<ClaimCreatorAsset>) -> Result<()> {
++    let a = ctx.accounts;
++    let entries = a.revenue.active();
++    let index = entries.iter().position(|e| e.wallet == a.recipient.key()).ok_or(LaunchpadError::Unauthorized)?;
++    let debt = a.ledger.owed.iter().try_fold(0u64, |sum, n| sum.checked_add(*n)).ok_or(LaunchpadError::AmountOverflow)?;
++    let fresh = a.custody.amount.checked_sub(debt).ok_or(LaunchpadError::InvalidRevenueShares)?;
++    for (owed, value) in a.ledger.owed.iter_mut().zip(super::creator_revenue::payouts(fresh, entries)?) {
++        *owed = owed.checked_add(value).ok_or(LaunchpadError::AmountOverflow)?;
++    }
++    let amount = a.ledger.owed[index];
++    require!(amount > 0, LaunchpadError::InvalidRevenueShares);
++    let mut fee = 0;
++    if a.token_program.key() == anchor_spl::token_2022::ID {
++        use anchor_spl::token_2022::spl_token_2022::{extension::{BaseStateWithExtensions, StateWithExtensions, transfer_fee::TransferFeeConfig}, state::Mint as RawMint};
++        let info = a.asset_mint.to_account_info(); let data = info.try_borrow_data()?;
++        let mint = StateWithExtensions::<RawMint>::unpack(&data)?;
++        if let Ok(config) = mint.get_extension::<TransferFeeConfig>() {
++            fee = config.calculate_epoch_fee(Clock::get()?.epoch, amount).ok_or(LaunchpadError::AmountOverflow)?;
++        }
++    }
++    let net = amount.checked_sub(fee).ok_or(LaunchpadError::AmountOverflow)?;
++    require!(net > 0, LaunchpadError::InvalidRevenueShares);
++    let before = a.custody.amount; let destination_before = a.destination.amount;
++    let bump = [a.revenue.bump];
++    let seeds: &[&[u8]] = &[REVENUE_SEED, a.revenue.mint.as_ref(), &bump];
++    token_interface::transfer_checked(CpiContext::new_with_signer(a.token_program.to_account_info(), TransferChecked {
++        from: a.custody.to_account_info(), mint: a.asset_mint.to_account_info(), to: a.destination.to_account_info(),
++        authority: a.revenue.to_account_info(),
++    }, &[seeds]), amount, a.asset_mint.decimals)?;
++    a.custody.reload()?; a.destination.reload()?;
++    require_eq!(a.custody.amount, before.checked_sub(amount).ok_or(LaunchpadError::AmountOverflow)?, LaunchpadError::InvalidRevenueShares);
++    require_eq!(a.destination.amount, destination_before.checked_add(net).ok_or(LaunchpadError::AmountOverflow)?, LaunchpadError::InvalidRevenueShares);
++    a.ledger.owed[index] = 0;
++    a.revenue.count |= 128;
++    Ok(())
++}
+diff --git a/programs/launchpad_program/src/instructions/creator_revenue.rs b/programs/launchpad_program/src/instructions/creator_revenue.rs
+new file mode 100644
+index 0000000..0aedbd6
+--- /dev/null
++++ b/programs/launchpad_program/src/instructions/creator_revenue.rs
+@@ -0,0 +1,196 @@
++//! Owner-authorized, immutable sharing of curve SOL and actual LP assets.
++//! The original recipient and every historical account layout remain intact.
++use anchor_lang::prelude::*;
++use anchor_spl::token_interface::{self, Mint, TokenAccount, TokenInterface, TransferChecked};
++use crate::{constants::LAUNCHED_COIN_SEED, errors::LaunchpadError, state::LaunchedCoin};
++
++pub const REVENUE_SEED: &[u8] = b"creator_revenue";
++pub const REVENUE_LOCK_BYTE: usize = 32;
++
++#[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, Debug, PartialEq, Eq)]
++pub struct RevenueShare {
++    pub wallet: Pubkey,
++    pub bps: u16,
++}
++
++#[account]
++pub struct CreatorRevenue {
++    pub mint: Pubkey,
++    pub authority: Pubkey,
++    pub count: u8,
++    pub entries: [RevenueShare; 10],
++    pub bump: u8,
++}
++impl CreatorRevenue {
++    pub const LEN: usize = 8 + 32 + 32 + 1 + 10 * 34 + 1;
++    pub fn active(&self) -> &[RevenueShare] { &self.entries[..usize::from(self.count & 127)] }
++}
++
++fn validate(entries: &[RevenueShare]) -> Result<()> {
++    require!(!entries.is_empty() && entries.len() <= 10, LaunchpadError::InvalidRevenueShares);
++    let mut total = 0u32;
++    for (i, entry) in entries.iter().enumerate() {
++        require!(entry.bps > 0 && entry.wallet != Pubkey::default(), LaunchpadError::InvalidRevenueShares);
++        require!(solana_curve25519::edwards::validate_edwards(
++            &solana_curve25519::edwards::PodEdwardsPoint(entry.wallet.to_bytes())), LaunchpadError::InvalidRevenueShares);
++        require!(!entries[..i].iter().any(|e| e.wallet == entry.wallet), LaunchpadError::InvalidRevenueShares);
++        total += u32::from(entry.bps);
++    }
++    require!(total == 10_000, LaunchpadError::InvalidRevenueShares);
++    Ok(())
++}
++
++/// Only complete proportional batches leave custody; rounding never reallocates ownership.
++pub(crate) fn payouts(amount: u64, entries: &[RevenueShare]) -> Result<Vec<u64>> {
++    validate(entries)?;
++    fn gcd(mut a: u64, mut b: u64) -> u64 { while b != 0 { (a, b) = (b, a % b); } a }
++    let divisor = entries.iter().fold(10_000u64, |a, e| gcd(a, u64::from(e.bps)));
++    let quantum = 10_000 / divisor;
++    let batches = amount / quantum;
++    Ok(entries.iter().map(|e| batches * (u64::from(e.bps) / divisor)).collect())
++}
++
++#[derive(Accounts)]
++pub struct LockCreatorRevenue<'info> {
++    #[account(mut, address = launched_coin.creator_fee_recipient @ LaunchpadError::Unauthorized)]
++    pub authority: Signer<'info>,
++    #[account(mut, seeds = [LAUNCHED_COIN_SEED, launched_coin.mint.as_ref()], bump = launched_coin.bump)]
++    pub launched_coin: Box<Account<'info, LaunchedCoin>>,
++    #[account(init, payer = authority, space = CreatorRevenue::LEN,
++        seeds = [REVENUE_SEED, launched_coin.mint.as_ref()], bump)]
++    pub revenue: Box<Account<'info, CreatorRevenue>>,
++    pub system_program: Program<'info, System>,
++}
++
++pub fn lock(ctx: Context<LockCreatorRevenue>, entries: Vec<RevenueShare>) -> Result<()> {
++    validate(&entries)?;
++    require!(ctx.accounts.launched_coin.reserved[REVENUE_LOCK_BYTE] == 0, LaunchpadError::CreatorRevenueLocked);
++    let revenue = &mut ctx.accounts.revenue;
++    revenue.mint = ctx.accounts.launched_coin.mint;
++    revenue.authority = ctx.accounts.authority.key();
++    revenue.count = entries.len() as u8;
++    revenue.entries = [RevenueShare { wallet: Pubkey::default(), bps: 0 }; 10];
++    revenue.entries[..entries.len()].copy_from_slice(&entries);
++    revenue.bump = ctx.bumps.revenue;
++    ctx.accounts.launched_coin.reserved[REVENUE_LOCK_BYTE] = 1;
++    Ok(())
++}
++
++/// All old trade account metas survive. A locked coin requires its writable
++/// custody PDA in remaining_accounts, so omission cannot bypass the lock.
++pub fn destination<'info>(coin: &LaunchedCoin, original: AccountInfo<'info>, remaining: &[AccountInfo<'info>]) -> Result<AccountInfo<'info>> {
++    if coin.reserved[REVENUE_LOCK_BYTE] == 0 { return Ok(original); }
++    require!(coin.reserved[REVENUE_LOCK_BYTE] == 1, LaunchpadError::CreatorRevenueLocked);
++    let key = Pubkey::find_program_address(&[REVENUE_SEED, coin.mint.as_ref()], &crate::ID).0;
++    let account = remaining.iter().find(|a| a.key == &key).ok_or(LaunchpadError::InvalidRevenueShares)?;
++    require!(account.is_writable && account.owner == &crate::ID, LaunchpadError::InvalidRevenueShares);
++    let revenue = CreatorRevenue::try_deserialize(&mut &account.try_borrow_data()?[..])?;
++    require_keys_eq!(revenue.mint, coin.mint, LaunchpadError::InvalidRevenueShares);
++    require_keys_eq!(revenue.authority, coin.creator_fee_recipient, LaunchpadError::InvalidRevenueShares);
++    Ok(account.clone())
++}
++
++#[derive(Accounts)]
++pub struct DistributeCreatorSol<'info> {
++    #[account(mut, seeds = [REVENUE_SEED, revenue.mint.as_ref()], bump = revenue.bump)]
++    pub revenue: Box<Account<'info, CreatorRevenue>>,
++}
++pub fn distribute_sol(ctx: Context<DistributeCreatorSol>) -> Result<()> {
++    let revenue = &ctx.accounts.revenue;
++    let info = revenue.to_account_info();
++    let available = info.lamports().checked_sub(Rent::get()?.minimum_balance(CreatorRevenue::LEN))
++        .ok_or(LaunchpadError::AmountOverflow)?;
++    let values = payouts(available, revenue.active())?;
++    require!(ctx.remaining_accounts.len() == (revenue.count & 127) as usize, LaunchpadError::InvalidRevenueShares);
++    for ((entry, amount), account) in revenue.active().iter().zip(values).zip(ctx.remaining_accounts) {
++        require_keys_eq!(entry.wallet, account.key(), LaunchpadError::InvalidRevenueShares);
++        // Crediting lamports does not require ownership of the recipient. A
++        // shareholder may allocate, assign, or initialize a nonce at this key;
++        // none of those actions may veto the other shareholders' settlement.
++        require!(account.is_writable, LaunchpadError::InvalidRevenueShares);
++        let after = account.lamports().checked_add(amount).ok_or(LaunchpadError::AmountOverflow)?;
++        require!(after >= Rent::get()?.minimum_balance(0), LaunchpadError::InvalidRevenueShares);
++        **info.try_borrow_mut_lamports()? -= amount;
++        **account.try_borrow_mut_lamports()? = after;
++    }
++    Ok(())
++}
++
++#[derive(Accounts)]
++pub struct DistributeCreatorAsset<'info> {
++    #[account(seeds = [REVENUE_SEED, revenue.mint.as_ref()], bump = revenue.bump)]
++    pub revenue: Box<Account<'info, CreatorRevenue>>,
++    #[account(mint::token_program = token_program,
++        constraint = asset_mint.key() == revenue.mint || asset_mint.key() == crate::constants::WSOL_MINT @ LaunchpadError::InvalidRevenueShares)]
++    pub asset_mint: Box<InterfaceAccount<'info, Mint>>,
++    #[account(mut, associated_token::mint = asset_mint, associated_token::authority = revenue,
++        associated_token::token_program = token_program)]
++    pub custody: Box<InterfaceAccount<'info, TokenAccount>>,
++    pub token_program: Interface<'info, TokenInterface>,
++}
++pub fn distribute_asset<'info>(ctx: Context<'_, '_, 'info, 'info, DistributeCreatorAsset<'info>>) -> Result<()> {
++    let a = ctx.accounts;
++    require!(a.revenue.count & 128 == 0, LaunchpadError::Unauthorized);
++    let values = payouts(a.custody.amount, a.revenue.active())?;
++    // Taxable token transfers need every shareholder's consent to batch timing.
++    let mut taxable = false;
++    if a.token_program.key() == anchor_spl::token_2022::ID {
++        use anchor_spl::token_2022::spl_token_2022::extension::{BaseStateWithExtensions, StateWithExtensions, transfer_fee::TransferFeeConfig};
++        use anchor_spl::token_2022::spl_token_2022::state::Mint as RawMint;
++        let mint_info = a.asset_mint.to_account_info();
++        let data = mint_info.try_borrow_data()?;
++        let mint = StateWithExtensions::<RawMint>::unpack(&data)?;
++        if let Ok(fee) = mint.get_extension::<TransferFeeConfig>() {
++            taxable = u16::from(fee.get_epoch_fee(Clock::get()?.epoch).transfer_fee_basis_points) > 0;
++        }
++    }
++    let count = usize::from(a.revenue.count);
++    require!(ctx.remaining_accounts.len() == count * if taxable { 2 } else { 1 }, LaunchpadError::InvalidRevenueShares);
++    let bump = [a.revenue.bump];
++    let seeds: &[&[u8]] = &[REVENUE_SEED, a.revenue.mint.as_ref(), &bump];
++    for (i, ((entry, amount), target)) in a.revenue.active().iter().zip(values).zip(ctx.remaining_accounts).enumerate() {
++        require!(target.is_writable && target.owner == &a.token_program.key(), LaunchpadError::InvalidRevenueShares);
++        let token = InterfaceAccount::<TokenAccount>::try_from(target)?;
++        require_keys_eq!(token.mint, a.asset_mint.key(), LaunchpadError::InvalidRevenueShares);
++        require_keys_eq!(token.owner, entry.wallet, LaunchpadError::InvalidRevenueShares);
++        // Classic SPL ATAs can hand away their owner. Any account for this
++        // mint still owned by the beneficiary is a valid replacement.
++        if taxable {
++            let signer = &ctx.remaining_accounts[count + i];
++            require!(signer.is_signer && signer.key == &entry.wallet, LaunchpadError::Unauthorized);
++        }
++        if amount > 0 {
++            token_interface::transfer_checked(CpiContext::new_with_signer(a.token_program.to_account_info(), TransferChecked {
++                from: a.custody.to_account_info(), mint: a.asset_mint.to_account_info(), to: target.clone(), authority: a.revenue.to_account_info(),
++            }, &[seeds]), amount, a.asset_mint.decimals)?;
++        }
++    }
++    Ok(())
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    fn entries() -> Vec<RevenueShare> {
++        // Compressed Edwards basepoint and its sign variant are distinct valid wallets.
++        let mut a = [0x66; 32]; a[0] = 0x58;
++        let mut b = a; b[31] |= 0x80;
++        vec![RevenueShare { wallet: Pubkey::new_from_array(a), bps: 3333 }, RevenueShare { wallet: Pubkey::new_from_array(b), bps: 6667 }]
++    }
++    #[test] fn exact_entitlements_and_dust() {
++        let shares = entries();
++        assert_eq!(payouts(19_999, &shares).unwrap(), vec![3333, 6667]);
++        assert_eq!(payouts(9_999, &shares).unwrap(), vec![0, 0]);
++        let amounts = payouts(u64::MAX, &shares).unwrap();
++        assert!(amounts.iter().sum::<u64>() <= u64::MAX);
++        assert_eq!(u128::from(amounts[0]) * 6667, u128::from(amounts[1]) * 3333);
++    }
++    #[test] fn malformed_policy_rejected() {
++        assert!(validate(&[]).is_err());
++        let mut shares = entries(); shares[1].wallet = shares[0].wallet;
++        assert!(validate(&shares).is_err());
++        shares = entries(); shares[0].bps = 0; assert!(validate(&shares).is_err());
++        shares = entries(); shares[1].bps += 1; assert!(validate(&shares).is_err());
++        shares = entries(); shares[0].wallet = Pubkey::default(); assert!(validate(&shares).is_err());
++    }
++}
+diff --git a/programs/launchpad_program/src/instructions/mod.rs b/programs/launchpad_program/src/instructions/mod.rs
+index 7e9fe71..f490d89 100644
+--- a/programs/launchpad_program/src/instructions/mod.rs
++++ b/programs/launchpad_program/src/instructions/mod.rs
+@@ -81,3 +81,15 @@ pub use migrate_devnet_splitter::*;
+ 
+ pub mod legacy_settlement;
+ pub use legacy_settlement::*;
++
++pub mod create_or_buy_pda;
++pub use create_or_buy_pda::*;
++
++pub mod creator_revenue;
++pub use creator_revenue::*;
++
++pub mod claim_shared_meteora_fees;
++pub use claim_shared_meteora_fees::*;
++
++pub mod creator_pull;
++pub use creator_pull::*;
+diff --git a/programs/launchpad_program/src/instructions/sell.rs b/programs/launchpad_program/src/instructions/sell.rs
+index 40d149e..04731ad 100644
+--- a/programs/launchpad_program/src/instructions/sell.rs
++++ b/programs/launchpad_program/src/instructions/sell.rs
+@@ -174,9 +174,14 @@ pub(crate) fn handler<'info>(
+     // Recipient ownership and rent coverage can change without holder
+     // consent. Escrow unsafe credits without changing the quote or reserves.
+     let rent = Rent::get()?;
++    let creator_credit_key = if launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] == 0 {
++        ctx.accounts.creator_fee_recipient.key()
++    } else {
++        Pubkey::find_program_address(&[super::creator_revenue::REVENUE_SEED, ctx.accounts.mint.key().as_ref()], &crate::ID).0
++    };
+     let recipient_credits = [
+         (ctx.accounts.treasury.key(), platform_fee),
+-        (ctx.accounts.creator_fee_recipient.key(), creator_fee),
++        (creator_credit_key, creator_fee),
+         (ctx.accounts.charity_wallet.key(), charity_fee),
+         (ctx.accounts.seller.key(), sol_to_seller),
+     ];
+@@ -187,13 +192,18 @@ pub(crate) fn handler<'info>(
+         &rent,
+         ctx.remaining_accounts,
+     )?;
+-    let creator_destination = trade_fee_destination(
++    let creator_destination = if launched_coin.reserved[super::creator_revenue::REVENUE_LOCK_BYTE] != 0 {
++        super::creator_revenue::destination(launched_coin,
++            ctx.accounts.creator_fee_recipient.to_account_info(), ctx.remaining_accounts)?
++    } else {
++        trade_fee_destination(
+         ctx.accounts.mint.key(),
+         ctx.accounts.creator_fee_recipient.to_account_info(),
+         total_credit(ctx.accounts.creator_fee_recipient.key(), &recipient_credits),
+         &rent,
+         ctx.remaining_accounts,
+-    )?;
++        )?
++    };
+     let charity_destination = if launched_coin.charity_bps > 0 {
+         trade_fee_destination(
+             ctx.accounts.mint.key(),
+diff --git a/programs/launchpad_program/src/lib.rs b/programs/launchpad_program/src/lib.rs
+index 033ff80..cec9ca9 100644
+--- a/programs/launchpad_program/src/lib.rs
++++ b/programs/launchpad_program/src/lib.rs
+@@ -109,6 +109,28 @@ declare_id!("4FHT8zaT8eisyZ3XygSmVQUdEkfyj5NmMwC77RTM1waU");
+ pub mod launchpad_program {
+     use super::*;
+ 
++    pub fn claim_creator_asset(ctx: Context<ClaimCreatorAsset>) -> Result<()> {
++        instructions::creator_pull::claim(ctx)
++    }
++
++
++    pub fn claim_shared_meteora_fees(ctx: Context<ClaimSharedMeteoraFees>) -> Result<()> {
++        instructions::claim_shared_meteora_fees::handler(ctx)
++    }
++
++
++    pub fn lock_creator_revenue(ctx: Context<LockCreatorRevenue>, entries: Vec<RevenueShare>) -> Result<()> {
++        require!(!cfg!(feature = "recovery"), errors::LaunchpadError::CreatorRevenueLocked);
++        instructions::creator_revenue::lock(ctx, entries)
++    }
++    pub fn distribute_creator_sol(ctx: Context<DistributeCreatorSol>) -> Result<()> {
++        instructions::creator_revenue::distribute_sol(ctx)
++    }
++    pub fn distribute_creator_asset<'info>(ctx: Context<'_, '_, 'info, 'info, DistributeCreatorAsset<'info>>) -> Result<()> {
++        instructions::creator_revenue::distribute_asset(ctx)
++    }
++
++
+     /// Joint approval by source admin and a distinct program upgrade authority.
+     pub fn approve_legacy_rewards(
+         ctx: Context<ApproveLegacyRewards>,
+@@ -183,6 +205,19 @@ pub mod launchpad_program {
+         instructions::launch_coin::handler(ctx, params)
+     }
+ 
++    /// Additive mint-PDA entry point. Existing instruction ABIs are unchanged.
++    pub fn create_or_buy_pda<'info>(ctx: Context<'_, '_, '_, 'info, CreateOrBuyPda<'info>>, params: CreateAndFirstBuyParams, nonce: u64) -> Result<()> {
++        require!(!cfg!(feature = "recovery"), errors::LaunchpadError::CreatorRevenueLocked);
++        instructions::create_or_buy_pda::handler(ctx, params, nonce)
++    }
++
++    /// Paid address adapter; preserves the original create_or_buy_pda wire.
++    pub fn create_or_buy_pda_with_vanity_fee<'info>(ctx: Context<'_, '_, '_, 'info, CreateOrBuyPda<'info>>, params: CreateAndFirstBuyParams, nonce: u64, fee: PdaVanityFee) -> Result<()> {
++        require!(!cfg!(feature = "recovery"), errors::LaunchpadError::CreatorRevenueLocked);
++        instructions::create_or_buy_pda::handler_with_vanity_fee(ctx, params, nonce, fee)
++    }
++
++
+     /// Launch a new Token-2022 mint AND execute a mandatory first buy in
+     /// one atomic transaction, with the buyer paying rent and SOL.
+     /// Creator and fee-recipient signatures are optional, matching live calls.

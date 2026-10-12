@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-12",
+  "url": "https://support.jup.ag/requests/new/amm-integrators",
+  "fields": [
+    "Email address",
+    "Project / Company Name",
+    "Telegram username",
+    "Integration Type",
+    "Subject",
+    "Description"
+  ],
+  "integration_type": {
+    "label": "Bonding Curve",
+    "value": "bonding_curve"
+  },
+  "description_prompts": [
+    "Specific features",
+    "Similarity to existing AMMs",
+    "Top pool or launched token address",
+    "Documentation links",
+    "Credibility/background"
+  ],
+  "method": "Read-only HTTP retrieval of live form and relevant public client chunk; no submission"
+}

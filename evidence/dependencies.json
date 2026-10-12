@@ -1,0 +1,16 @@
+[
+  {
+    "label": "spl_token_2022",
+    "program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "slot": 456009821,
+    "sha256": "0999dbf708971e723b08d1caafc988826a59c6001ed6dc02260da07defbe1469",
+    "bytes": 1382016
+  },
+  {
+    "label": "spl_associated_token_account",
+    "program": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+    "slot": 456009821,
+    "sha256": "6804554e69fd3a58caa191dc4a58f4c67223d30ca28ab8987f39fc18d2f7374d",
+    "bytes": 105032
+  }
+]

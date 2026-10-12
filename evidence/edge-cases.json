@@ -1,0 +1,185 @@
+{
+  "result": "PASS",
+  "scope": "Synthetic variants of mainnet fixtures, executed with deployed SBF",
+  "cases": [
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": true,
+      "in": 1000,
+      "out": 35079993,
+      "fee": 12,
+      "compute_units": 133064,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": false,
+      "in": 17539996,
+      "out": 483,
+      "fee": 6,
+      "compute_units": 126196,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": true,
+      "in": 1000000,
+      "out": 35061089935,
+      "fee": 12500,
+      "compute_units": 133059,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": false,
+      "in": 17530544967,
+      "out": 482722,
+      "fee": 6110,
+      "compute_units": 126291,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": true,
+      "in": 100000000,
+      "out": 3494733993488,
+      "fee": 1250000,
+      "compute_units": 133066,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": false,
+      "in": 1747366996744,
+      "out": 48351471,
+      "fee": 612043,
+      "compute_units": 126197,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": true,
+      "in": 1000000000,
+      "out": 33946133513233,
+      "fee": 12500000,
+      "compute_units": 134005,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "buy": false,
+      "in": 16973066756616,
+      "out": 490600882,
+      "fee": 6210137,
+      "compute_units": 127136,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 50,
+      "capped_mismatch_rejected_by_quote_and_program": true
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": true,
+      "in": 1000,
+      "out": 34903712,
+      "fee": 12,
+      "compute_units": 133050,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": false,
+      "in": 17451856,
+      "out": 478,
+      "fee": 6,
+      "compute_units": 126197,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": true,
+      "in": 1000000,
+      "out": 34884903553,
+      "fee": 12500,
+      "compute_units": 133045,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": false,
+      "in": 17442451776,
+      "out": 477883,
+      "fee": 6049,
+      "compute_units": 126292,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": true,
+      "in": 100000000,
+      "out": 3477172516134,
+      "fee": 1250000,
+      "compute_units": 133052,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": false,
+      "in": 1738586258067,
+      "out": 47867526,
+      "fee": 605918,
+      "compute_units": 126299,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": true,
+      "in": 1000000000,
+      "out": 33775549927739,
+      "fee": 12500000,
+      "compute_units": 133991,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "buy": false,
+      "in": 16887774963869,
+      "out": 485760596,
+      "fee": 6148868,
+      "compute_units": 127236,
+      "cpi": false
+    },
+    {
+      "synthetic_transfer_fee_bps": 100,
+      "capped_mismatch_rejected_by_quote_and_program": true
+    },
+    {
+      "refused_state": "graduated"
+    },
+    {
+      "refused_state": "complete"
+    },
+    {
+      "refused_state": "prepared"
+    },
+    {
+      "synthetic_revenue_lock": true,
+      "buy": true,
+      "in": 100000000,
+      "out": 3512295470843,
+      "fee": 1250000,
+      "compute_units": 143190,
+      "cpi": false
+    },
+    {
+      "synthetic_revenue_lock": true,
+      "buy": false,
+      "in": 1756147735421,
+      "out": 48837836,
+      "fee": 618200,
+      "compute_units": 136419,
+      "cpi": false
+    }
+  ]
+}

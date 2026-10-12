@@ -1,0 +1,15 @@
+{
+  "program": "LimitQGBbcHeGJZd3FbQEejiCRuk1rfvwhbv8XCtAoN",
+  "programdata": "GJddXHWzXsPU3AQvbWvnPPEYSyFz7fofz85hxhdLbopD",
+  "slot": 456007933,
+  "deployment_slot": 455611295,
+  "elf_sha256": "cc10058317ec65cf09f5a021a05c9a1901a5b42be49732c860b54c6c3e8a9b9d",
+  "elf_bytes": 1646928,
+  "pools_total": 111,
+  "selected": [
+    "Atb9wApJzvG9KbFH1UExCzvXfffxGtLgZEmA7RKeLLsU",
+    "3B78c6TqVRvbCz4gmSqF7oMh4hbG2MPbZXRkXL6bxWUV",
+    "GxtwUMr1Px41RpnKJK8yLX1sHWrvgV6D2QtKagx74tQx",
+    "FHKYiQQDU8GhPzJAy2V65hxYHW3SreGz7pijspReANaf"
+  ]
+}

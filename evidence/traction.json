@@ -1,0 +1,12 @@
+{
+  "measured_at": "2026-10-12T10:15:03.819197+00:00",
+  "window_start": "2026-10-05T10:15:03.819197+00:00",
+  "api": "https://api.limitless.buzz",
+  "api_reported_total_tokens": 238,
+  "listed_unique_tokens": 33,
+  "listed_live_tokens": 11,
+  "seven_day_volume_sol": "1.082534637000000000",
+  "seven_day_trades": 36,
+  "oldest_fetched_trade": "2026-04-03T22:21:33.493Z",
+  "notes": "Public API indexed BUY/SELL SOL amounts, deduplicated by signature. Includes test activity; not independently reconstructed from all on-chain transactions. Live status count uses public token list and excludes hidden/unlisted entries."
+}
