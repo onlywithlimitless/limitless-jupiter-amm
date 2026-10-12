@@ -36,7 +36,7 @@ Validation: 76 exact input/output parity executions across four real mainnet cur
 
 Integration consideration: native buys/sells pass CPI and have no top-level-only caller restriction. They debit/credit signer lamports, however, and require that signer's canonical Token-2022 ATA. Our explicit WSOL test proves WSOL balances do not change during those native swaps. Jupiter needs a native-SOL unwrap/wrap implementation and compatible account routing; the SDK currently uses upstream `Swap::Placeholder`, not an integrated Jupiter swap variant. We use direct LiteSVM because the public test kit's single-instruction token-account model does not express this native-SOL settlement. An issue draft is included; no issue was submitted.
 
-Security: we have internal AIRTIGHT source reviews, regression tests, adversarial SBF tests and reproducible-build evidence. **There is no external audit report available for this application; the program and this adapter are not externally audited.** Internal automated/AI-assisted reviews are not an external security audit.
+Security: we have internal AIRTIGHT source reviews, regression tests, adversarial SBF tests and reproducible-build evidence. **There is no external audit report available for this application; no external audit is claimed for the program or this adapter.** Internal automated/AI-assisted reviews are not an external security audit.
 
 Traction from api.limitless.buzz at 2026-10-12 10:15:03 UTC: 11 publicly listed live coins, 1.082534637 SOL indexed BUY/SELL volume across 36 trades during the preceding seven days. The API's total record count is 238 and includes records outside the public live list; it is not our live-coin count. Activity includes test launches/trades. No backer or funding claim is made.
 
